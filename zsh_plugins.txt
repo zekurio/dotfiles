@@ -1,0 +1,29 @@
+# p10k
+romkatv/powerlevel10k
+
+# z
+rupa/z
+
+# completions
+zsh-users/zsh-completions
+
+# autosuggestions
+zsh-users/zsh-autosuggestions
+
+# hss
+zsh-users/zsh-history-substring-search
+
+# syntax highlighting
+zsh-users/zsh-syntax-highlighting
+
+# archlinux helpers
+Junker/zsh-archlinux
+
+# golang
+wintermi/zsh-golang
+
+# rust
+cowboyd/zsh-rust
+
+# systemd
+le0me55i/zsh-systemd
