@@ -20,18 +20,19 @@ else
 fi
 
 # check if git and zsh are installed
-for pkg in git zsh; do
-    if ! [ -x "$(command -v $pkg)" ]; then
-        echo "$pkg is not installed. Installing $pkg..."
-        if [ "$PKG_MGR" = "apt" ]; then
-            sudo apt update
-            sudo apt install $pkg
-        elif [ "$PKG_MGR" = "pacman" ]; then
-            sudo pacman -Syu
-            sudo pacman -S $pkg
-        fi
+echo "Checking for git and zsh..."
+if [ -x "$(command -v git)" ] && [ -x "$(command -v zsh)" ]; then
+    echo "git and zsh are already installed."
+else
+    echo "git and/or zsh are not installed. Installing..."
+    if [ "$PKG_MGR" = "apt" ]; then
+        sudo apt update
+        sudo apt install -y git zsh
+    elif [ "$PKG_MGR" = "pacman" ]; then
+        sudo pacman -Syu
+        sudo pacman -S --noconfirm git zsh
     fi
-done
+fi
 
 
 # add zsh to /etc/shells
