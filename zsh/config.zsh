@@ -11,18 +11,13 @@ bindkey "^[[1;5D" backward-word
 # control + backspace to delete a word
 bindkey '^H' backward-kill-word
 
-# hist
-
-# max history size
-export HISTSIZE='65536';
-export HISTFILESIZE="${HISTSIZE}";
-
-# ignore duplicates and space prefix
-export HISTCONTROL='ignoreboth';
-
-# set format
-export HISTTIMEFORMAT="%F %T "
-
+# history and other settings
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
 setopt autocd
-
 unsetopt beep nomatch
+zstyle :compinstall filename $HOME/.zshrc
+
+autoload -Uz compinit
+compinit

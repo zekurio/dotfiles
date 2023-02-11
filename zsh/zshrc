@@ -1,8 +1,8 @@
 # variables
 export DOTFILES="${HOME}/.dotfiles"
-ZSH_DIR="${DOTFILES}/zsh"
+export ZSH_DIR="${DOTFILES}/zsh"
 export ANTIDOTE_HOME="${ZSH_DIR}/antidote"
-ZSH_LOCAL="$ZSH_DIR/local"
+export ZSH_LOCAL="$ZSH_DIR/local"
 mkdir -p $ZSH_LOCAL
 export ZSH_COMPDUMP="$ZSH_LOCAL/zcompdump-${SHORT_HOST:-${HOST}}-${ZSH_VERSION}"
 export HISTFILE="$ZSH_LOCAL/history"

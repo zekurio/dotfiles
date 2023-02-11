@@ -15,6 +15,3 @@ zsh-users/zsh-history-substring-search
 
 # syntax highlighting
 zsh-users/zsh-syntax-highlighting
-
-# history
-robbyrussell/oh-my-zsh path:plugins/history
