@@ -1,0 +1,8 @@
+# Antidote
+antidote/
+
+# Local zsh generated files
+zsh/local
+
+# Local files
+*.local

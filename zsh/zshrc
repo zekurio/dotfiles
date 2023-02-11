@@ -28,6 +28,7 @@ for file in ${ZSH_DIR}/{paths,config}.zsh; do
 done;
 unset file;
 
+# p10k
 source $ZSH_DIR/p10k.zsh
 
 # 1password

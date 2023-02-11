@@ -12,9 +12,9 @@ bindkey "^[[1;5D" backward-word
 bindkey '^H' backward-kill-word
 
 # history and other settings
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTFILE=$ZSH_LOCAL/history
+HISTSIZE=65536
+SAVEHIST=65536
 setopt autocd
 unsetopt beep nomatch
 zstyle :compinstall filename $HOME/.zshrc
