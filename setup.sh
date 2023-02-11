@@ -34,16 +34,14 @@ else
     fi
 fi
 
-
-# add zsh to /etc/shells
-echo "Adding zsh to /etc/shells..."
+# adding zsh to /etc/shells and changing shell to zsh
+echo "Adding zsh to /etc/shells and changing shell to zsh..."
 if ! grep -Fxq "$(which zsh)" /etc/shells; then
     echo "$(which zsh)" | sudo tee -a /etc/shells
+    sudo chsh -s $(which zsh) $USER
+else
+    sudo chsh -s $(which zsh) $USER
 fi
-
-# change shell to zsh
-echo "Changing shell to zsh..."
-chsh -s $(which zsh)
 
 # if the user only downloaded the script, git clone the repo
 echo "Cloning dotfiles repo..."
@@ -56,3 +54,5 @@ echo "Creating symlinks..."
 ln -fs "${DOTFILES}/zsh/zshrc" "${HOME}/.zshrc"
 mkdir -p ~/.ssh
 ln -fs "${DOTFILES}/ssh/config" "${HOME}/.ssh/config"
+
+echo "Done, restart your terminal."
