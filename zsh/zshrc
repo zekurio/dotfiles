@@ -8,6 +8,13 @@ export ZSH_COMPDUMP="$ZSH_LOCAL/zcompdump-${SHORT_HOST:-${HOST}}-${ZSH_VERSION}"
 export HISTFILE="$ZSH_LOCAL/history"
 export _Z_DATA="${ZSH_LOCAL}/z"
 
+# p10k instant prompt
+if [[ -r "${ZSH_LOCAL}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${ZSH_LOCAL}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+[[ ! -f $ZSH_DIR/p10k.zsh ]] || source $ZSH_DIR/p10k.zsh
+
 # antidote
 zstyle ':antidote:bundle' use-friendly-names 'yes'
 if [[ ! $ZSH_LOCAL/plugins.zsh -nt $ZSH_DIR/zsh.plugins ]]; then
@@ -28,8 +35,5 @@ for file in ${ZSH_DIR}/{paths,config}.zsh; do
 done;
 unset file;
 
-# p10k
-source $ZSH_DIR/p10k.zsh
-
 # 1password
-source ${DOTFILES}/ssh/agent-bridge.sh
+source $DOTFILES/ssh/agent-bridge.sh
