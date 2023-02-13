@@ -30,7 +30,7 @@ done;
 unset file;
 
 # 1password
-source $DOTFILES/ssh/agent-bridge.sh
+# source $DOTFILES/ssh/agent-bridge.sh
 
 # starship
 eval "$(starship init zsh)"
@@ -55,4 +55,3 @@ unset FSH_CURRENT_THEME
 
 unset ZSH_LOCAL
 unset ZSH_DIR
-export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g

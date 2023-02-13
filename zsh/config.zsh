@@ -12,10 +12,4 @@ bindkey "^[[1;5D" backward-word
 bindkey '^H' backward-kill-word
 
 # set history size to 2^16 and other options
-export SAVEHIST=65536;
-
-setopt HIST_IGNORE_SPACE
-setopt HIST_IGNORE_ALL_DUPS
-
-setopt INC_APPEND_HISTORY
-setopt EXTENDED_HISTORY
+export HISTSIZE=65536;
