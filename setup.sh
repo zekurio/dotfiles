@@ -34,6 +34,22 @@ else
     fi
 fi
 
+# checking if starship is installed
+echo "Checking for starship..."
+if [ -x "$(command -v starship)" ]; then
+    echo "starship is already installed."
+else
+    if [ "$PKG_MGR" = "apt" ]; then
+        curl -sS https://starship.rs/install.sh | sh
+    elif [ "$PKG_MGR" = "pacman" ]; then
+        sudo pacman -S --noconfirm starship
+    fi
+fi
+
+# install g
+echo "Installing g..."
+curl -sSL https://git.io/g-install | sh
+
 # adding zsh to /etc/shells and changing shell to zsh
 echo "Adding zsh to /etc/shells and changing shell to zsh..."
 if ! grep -Fxq "$(which zsh)" /etc/shells; then

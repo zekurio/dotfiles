@@ -7,13 +7,7 @@ mkdir -p $ZSH_LOCAL
 export ZSH_COMPDUMP="$ZSH_LOCAL/zcompdump-${SHORT_HOST:-${HOST}}-${ZSH_VERSION}"
 export HISTFILE="$ZSH_LOCAL/history"
 export _Z_DATA="${ZSH_LOCAL}/z"
-
-# p10k instant prompt
-if [[ -r "${ZSH_LOCAL}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${ZSH_LOCAL}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-[[ ! -f $ZSH_DIR/p10k.zsh ]] || source $ZSH_DIR/p10k.zsh
+export STARSHIP_CONFIG="${ZSH_DIR}/starship.toml"
 
 # antidote
 zstyle ':antidote:bundle' use-friendly-names 'yes'
@@ -30,10 +24,35 @@ fi
 source $ZSH_LOCAL/plugins.zsh
 
 # load other stuff
-for file in ${ZSH_DIR}/{paths,config}.zsh; do
+for file in ${ZSH_DIR}/{paths,config,omz}.zsh; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
 # 1password
 source $DOTFILES/ssh/agent-bridge.sh
+
+# starship
+eval "$(starship init zsh)"
+
+# fast-syntax-highlighting
+FSH_THEME="default"
+FSH_CURRENT_THEME=""
+if [[ -f "$ZSH_LOCAL/theme.fsh" ]]; then
+  read FSH_CURRENT_THEME < "$ZSH_LOCAL/theme.fsh"
+fi
+if [[ $FSH_CURRENT_THEME != $FSH_THEME ]]; then
+  fast-theme $FSH_THEME
+  echo $FSH_THEME > "$ZSH_LOCAL/theme.fsh"
+  FSH_OVERLAY="$ZSH_DIR/plugin-configs/fast-syntax-highlighting/$FSH_THEME-overlay.ini"
+  if [[ -e $FSH_OVERLAY ]]; then
+    fast-theme $FSH_OVERLAY
+  fi
+  unset FSH_OVERLAY
+fi
+unset FSH_THEME
+unset FSH_CURRENT_THEME
+
+unset ZSH_LOCAL
+unset ZSH_DIR
+export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
