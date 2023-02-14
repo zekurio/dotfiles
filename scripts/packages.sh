@@ -1,21 +1,11 @@
 # Part of the setup script. Checks for packages and installs them if they are not installed.
 
-# for g
-export GOPATH="$HOME/go"
-
-export GOROOT="$HOME/.go"
-
-# first, some variables
-# here we define the packages we want to install
-PACMAN_PACKAGES="git zsh starship rustup base-devel otf-firacode-nerd otf-cascadia-code-nerd"
-
 # if we are in WSL, we add some more packages
 if [ -n "$WSL2" ]; then
     PACMAN_PACKAGES="$PACMAN_PACKAGES socat"
 fi
 
-AUR_PACKAGES="paru-git"
-
+# now we update the package lists
 echo "Updating package lists..."
 sudo pacman -Syu
 
@@ -30,17 +20,20 @@ for package in $PACKAGES; do
     fi
 done
 
-# now we build and install paru
-echo "Checking for paru..."
-if [ -x "$(command -v paru)" ]; then
-    echo "paru is already installed."
-else
-    echo "paru is not installed. Installing..."
-    git clone https://aur.archlinux.org/paru.git
-    cd paru
-    makepkg -si
-    cd ..
-    rm -rf paru
+# if there are packages from the AUR, we install paru
+if [ -n "$AUR_PACKAGES" ]; then
+    echo "Checking for paru..."
+    if [ -x "$(command -v paru)" ]; then
+        echo "paru is already installed."
+    else
+        echo "paru is not installed. Installing..."
+        sudo pacman -S --needed --noconfirm base-devel
+        git clone https://aur.archlinux.org/paru.git
+        cd paru
+        makepkg -si
+        cd ..
+        rm -rf paru
+    fi
 fi
 
 # now we install paru from the AUR

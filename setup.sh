@@ -2,6 +2,15 @@
 
 export DOTFILES="$HOME/.dotfiles"
 
+export GOPATH="$HOME/go"
+
+export GOROOT="$HOME/.go"
+
+# we need at least git, zsh, starship and rustup
+export PACMAN_PACKAGES="git zsh starship rustup"
+
+export AUR_PACKAGES=""
+
 # CHECKS
 
 # if user is root, then exit
@@ -22,6 +31,24 @@ sudo -v
 
 # keep-alive: update existing sudo time stamp until script is done
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# ask the user if they want to install additional packages
+echo "Do you want to install more packages from the base repos? (y/n)"
+read -r answer
+if [ "$answer" = "y" ]; then
+    echo "Please enter the packages you want to install, separated by spaces."
+    read -r more_packages
+    PACMAN_PACKAGES="$PACMAN_PACKAGES $more_packages"
+fi
+
+# now we ask the user if they want to install packages from the AUR
+echo "Do you want to install packages from the AUR? (y/n)"
+read -r answer
+if [ "$answer" = "y" ]; then
+    echo "Please enter the packages you want to install, separated by spaces."
+    read -r more_packages
+    AUR_PACKAGES="$AUR_PACKAGES $more_packages"
+fi
 
 # Cloning dotfiles repo
 echo "Cloning dotfiles repo..."
