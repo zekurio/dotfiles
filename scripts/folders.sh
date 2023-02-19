@@ -1,12 +1,12 @@
-# Part of the setup script. Creates folders and symlinks.
+#!/bin/bash
 
 # create our folders
 echo "Creating folders..."
-mkdir -p $HOME/.ssh
+mkdir -p "$HOME/.ssh"
 
 # if we are in WSL, create the .1password folder
 if [ -n "$WSL2" ]; then
-    mkdir -p $HOME/.1password
+    mkdir -p "$HOME/.1password"
 fi
 
 # create symlinks

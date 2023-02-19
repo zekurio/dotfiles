@@ -1,4 +1,4 @@
-# Part of the setup script. Checks for packages and installs them if they are not installed.
+#!/bin/bash
 
 # if we are in WSL, we add some more packages
 if [ -n "$WSL2" ]; then
@@ -29,9 +29,9 @@ if [ -n "$AUR_PACKAGES" ]; then
         echo "paru is not installed. Installing..."
         sudo pacman -S --needed --noconfirm base-devel
         git clone https://aur.archlinux.org/paru.git
-        cd paru
+        cd paru || exit
         makepkg -si
-        cd ..
+        cd .. || exit
         rm -rf paru
     fi
 fi
@@ -39,11 +39,11 @@ fi
 # now we install paru from the AUR
 echo "Checking for packages from the AUR..."
 for package in $AUR_PACKAGES; do
-    if [ -x "$(command -v $package)" ]; then
+    if [ -x "$(command -v "$package")" ]; then
         echo "$package is already installed."
     else
         echo "$package is not installed. Installing..."
-        paru -S --noconfirm $package
+        paru -S --noconfirm "$package"
     fi
 done
 
