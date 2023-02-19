@@ -14,13 +14,15 @@ export AUR_PACKAGES=""
 # CHECKS
 
 # if user is root, then exit
-if [ $(id -u) -eq 0 ]; then
+if [ "$(id -u)" -eq 0 ]; then
     echo "You are root. Please run this script as a normal user."
     exit 1
 fi
 
 # check if system is under WSL2 and set WSL=1
-if [[ $(grep -i microsoft /proc/version) && $(grep -i wsl2 /proc/version) ]]; then
+# use grep -p instead of [[ ]] to avoid errors
+# use without &> /dev/null to avoid errors
+if grep -qEi "(Microsoft|WSL)" /proc/version > /dev/null 2>&1 ; then
     echo "Running under WSL2."
     export WSL2=1
 fi
@@ -53,31 +55,31 @@ fi
 # Cloning dotfiles repo
 echo "Cloning dotfiles repo..."
 if [ ! -d "$HOME/.dotfiles" ]; then
-    git clone https://github.com/zekurio/dotfiles.git $DOTFILES
+    git clone https://github.com/zekurio/dotfiles.git "$DOTFILES"
 fi
 
 # run the packages script
 echo "Running packages script..."
-sh $DOTFILES/scripts/packages.sh
+sh "$DOTFILES/scripts/packages.sh"
 
 echo "Packages script finished."
 
 # run the folders script
 echo "Running folders script..."
-sh $DOTFILES/scripts/folders.sh
+sh "$DOTFILES/scripts/folders.sh"
 
 echo "Folders script finished."
 
 # adding zsh to /etc/shells and changing shell to zsh
 echo "Adding zsh to /etc/shells and changing shell to zsh..."
 if ! grep -Fxq "$(which zsh)" /etc/shells; then
-    echo "$(which zsh)" | sudo tee -a /etc/shells
-    sudo chsh -s $(which zsh) $USER
+    "$(which zsh)" | sudo tee -a /etc/shells
+    sudo chsh -s "$(which zsh) $USER"
 else
-    sudo chsh -s $(which zsh) $USER
+    sudo chsh -s "$(which zsh) $USER"
 fi
 
-sed -i 's/# source $DOTFILES\/ssh\/agent-bridge.sh/source $DOTFILES\/ssh\/agent-bridge.sh/g' $HOME/.zshrc
+sed -i "s/# source $DOTFILES\/ssh\/agent-bridge.sh/source $DOTFILES\/ssh\/agent-bridge.sh/g" "$HOME/.zshrc"
 echo "1password is now setup for WSL. make sure npiperelay.exe is in your windows PATH."
      
 echo "Done, restart your terminal."
