@@ -13,10 +13,10 @@ export AUR_PACKAGES=""
 
 # CHECKS
 
-# if user is root, then exit
-if [ "$(id -u)" -eq 0 ]; then
-    echo "You are root. Please run this script as a normal user."
-    exit 1
+# check if the script is being run as root
+if [ "$EUID" -eq 0 ]; then
+    echo "Please do not run this script as root."
+    exit
 fi
 
 # check if system is under WSL2 and set WSL=1
@@ -26,13 +26,6 @@ if grep -qEi "(Microsoft|WSL)" /proc/version > /dev/null 2>&1 ; then
     echo "Running under WSL2."
     export WSL2=1
 fi
-
-# ask for sudo password upfront and keep it alive in case of sudo timeout
-echo "Please enter your sudo password. This is just to make sure that you have sudo access and to keep it alive for the duration of this script."
-sudo -v
-
-# keep-alive: update existing sudo time stamp until script is done
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # ask the user if they want to install additional packages
 echo "Do you want to install more packages from the base repos? (y/n)"
@@ -73,10 +66,10 @@ echo "Folders script finished."
 # adding zsh to /etc/shells and changing shell to zsh
 echo "Adding zsh to /etc/shells and changing shell to zsh..."
 if ! grep -Fxq "$(which zsh)" /etc/shells; then
-    "$(which zsh)" | sudo tee -a /etc/shells
-    sudo chsh -s "$(which zsh) $USER"
+    "$(which zsh)" | tee -a /etc/shells
+    chsh -s "$(which zsh) $USER"
 else
-    sudo chsh -s "$(which zsh) $USER"
+    chsh -s "$(which zsh) $USER"
 fi
 
 sed -i "s/# source $DOTFILES\/ssh\/agent-bridge.sh/source $DOTFILES\/ssh\/agent-bridge.sh/g" "$HOME/.zshrc"

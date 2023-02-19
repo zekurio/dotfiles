@@ -7,7 +7,7 @@ fi
 
 # now we update the package lists
 echo "Updating package lists..."
-sudo pacman -Syu
+pacman -Syu
 
 # now we install the packages
 echo "Checking for packages..."
@@ -16,7 +16,7 @@ for package in $PACKAGES; do
         echo "$package is already installed."
     else
         echo "$package is not installed. Installing..."
-        sudo pacman -S --noconfirm $package
+        pacman -S --noconfirm $package
     fi
 done
 
@@ -27,7 +27,7 @@ if [ -n "$AUR_PACKAGES" ]; then
         echo "paru is already installed."
     else
         echo "paru is not installed. Installing..."
-        sudo pacman -S --needed --noconfirm base-devel
+        pacman -S --needed --noconfirm base-devel
         git clone https://aur.archlinux.org/paru.git
         cd paru || exit
         makepkg -si
