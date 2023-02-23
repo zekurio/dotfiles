@@ -13,11 +13,15 @@ export AUR_PACKAGES=""
 
 # CHECKS
 
-# check if the script is being run as root
+# we don't want to run this script as root as we would clone the repo as root
+# and so on, so instead we use sudo and keep sudo active for the rest of the script
 if [ "$EUID" -eq 0 ]; then
     echo "Please do not run this script as root."
     exit
 fi
+
+# invoke sudo to keep it active for the rest of the script
+sudo -v
 
 # check if system is under WSL2 and set WSL=1
 # use grep -p instead of [[ ]] to avoid errors
@@ -67,9 +71,9 @@ echo "Folders script finished."
 echo "Adding zsh to /etc/shells and changing shell to zsh..."
 if ! grep -Fxq "$(which zsh)" /etc/shells; then
     "$(which zsh)" | tee -a /etc/shells
-    chsh -s "$(which zsh) $USER"
+    sudo chsh -s "$(which zsh) $USER"
 else
-    chsh -s "$(which zsh) $USER"
+    sudo chsh -s "$(which zsh) $USER"
 fi
 
 sed -i "s/# source $DOTFILES\/ssh\/agent-bridge.sh/source $DOTFILES\/ssh\/agent-bridge.sh/g" "$HOME/.zshrc"

@@ -13,8 +13,5 @@ zsh-users/zsh-history-substring-search
 # syntax highlighting
 zdharma-continuum/fast-syntax-highlighting
 
-# g
-stefanmaric/g
-
 # autocomplete
 marlonrichert/zsh-autocomplete

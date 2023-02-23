@@ -27,7 +27,7 @@ if [ -n "$AUR_PACKAGES" ]; then
         echo "paru is already installed."
     else
         echo "paru is not installed. Installing..."
-        pacman -S --needed --noconfirm base-devel
+        sudo pacman -S --needed --noconfirm base-devel
         git clone https://aur.archlinux.org/paru.git
         cd paru || exit
         makepkg -si
