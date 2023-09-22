@@ -1,0 +1,50 @@
+* {
+  font-family: "Fira Sans";
+  font-size: 14px;
+  color: #e0def4;
+  border-radius: 10px;
+}
+
+window#waybar {
+  background: none;
+}
+
+#workspaces,
+#window,
+#custom-playerctl,
+#network,
+#pulseaudio,
+#clock,
+#tray {
+  padding: 5px 15px;
+  background-color: rgba(30, 30, 46, 0.8);
+}
+
+.modules-center * {
+  margin: 0px 10px;
+}
+
+.modules-right * {
+  margin-right: 10px;
+}
+
+#workspaces button {
+  padding: 0px 5px;
+}
+
+#window,
+#custom-playerctl {
+  font-weight: 500;
+}
+
+#window {
+  margin-left: 10px;
+}
+
+#workspaces {
+  padding: 5px 10px;
+}
+
+window#waybar.empty #window {
+  background:none;
+}
