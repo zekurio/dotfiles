@@ -110,7 +110,7 @@ packages() {
 
     # install the programs
     echo "Installing programs..."
-    yay -S --noconfirm "${HYPRLAND_PROGRAMS[@]}" "${UTILITIES[@]}" "${FONTS[@]}" "${THEMES[@]}"
+    yay -S --noconfirm "${HYPRLAND[@]}" "${UTILITIES[@]}" "${FONTS[@]}" "${THEMES[@]}"
 }
 
 clone_repo() {
@@ -150,7 +150,7 @@ check() {
 }
 
 symlinks() {
-    CONFIG_LINKS=("alacritty" "dunst" "hypr" "rofi" "waybar" "spicetify")
+    CONFIG_LINKS=("alacritty" "dunst" "hypr" "rofi" "waybar")
 
     for dir in "${CONFIG_LINKS[@]}"; do
         echo "Linking $dir"
