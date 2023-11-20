@@ -64,7 +64,7 @@
     progress_bar_corner_radius = 0
 
     # Corner radius for the icon image.
-    icon_corner_radius = 0
+    icon_corner_radius = 10
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
@@ -95,7 +95,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#313244"
+    frame_color = "#89B4FA"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -248,7 +248,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 10
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -309,24 +309,17 @@
 
 
 [urgency_low]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
-    timeout = 10
-    #default_icon = /path/to/icon
+background = "#1E1E2E"
+foreground = "#CDD6F4"
 
 [urgency_normal]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
-    frame_color = "#f9e2af"
-    timeout = 10
-    #default_icon = /path/to/icon
+background = "#1E1E2E"
+foreground = "#CDD6F4"
 
 [urgency_critical]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
-    frame_color = "#f38ba8"
-    timeout = 0
-    #default_icon = /path/to/icon
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

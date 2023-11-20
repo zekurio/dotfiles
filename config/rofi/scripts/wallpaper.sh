@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPERS_DIR="$HOME/dev/dotfiles/walls"
+WALLPAPERS_DIR="$(xdg-user-dir PICTURES)/walls"
 THUMBNAILS_DIR="$HOME/.cache/rofi_thumbnails" # Directory to store thumbnails
 
 # Ensure the thumbnails directory exists
