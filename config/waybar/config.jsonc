@@ -26,8 +26,8 @@
         "on-click": "playerctl -p spotify previous",
         "on-click-right": "playerctl -p spotify next",
         "format-icons": {
-          "Playing": "<span foreground='#a6e3a1'>󰓇</span>",
-          "Paused": "<span foreground='#45475a'>󰓇</span>"
+          "Playing": "<span foreground='#a6e3a1'>\udb81\udcc7</span>",
+          "Paused": "<span foreground='#45475a'>\udb81\udcc7</span>"
         },
         "tooltip": false
     },
@@ -49,7 +49,7 @@
         "format-muted": "<span foreground='#45475a'>\udb81\udf5f</span>  Muted"
     },
     "clock": {
-        "format": "<span foreground='#89b4fa'></span>  {:%H:%M}",
+        "format": "<span foreground='#89b4fa'>\udb82\udd54</span>  {:%H:%M}",
         "format-alt": "<span foreground='#89b4fa'>\udb80\udced</span>  {:%d.%m.%Y (%R)}"
     },
     "tray": {

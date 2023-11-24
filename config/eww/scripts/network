@@ -1,0 +1,46 @@
+#!/bin/bash
+
+## Toggle state
+toggle() {
+  if [ -z "$(nmcli device status | grep -E 'wifi|ethernet' | grep -v 'disconnected')" ];then
+    nmcli radio all on
+  else
+    nmcli radio all off
+  fi
+}
+
+## Get Icon
+get_icon() {
+  while true; do
+    if nmcli device status | grep -q 'wifi.*connected'; then
+      echo ""
+    elif nmcli device status | grep -q 'ethernet.*connected'; then
+      echo ""
+    else
+      echo ""
+    fi
+    sleep 5
+  done
+}
+
+## Get Status
+get_status() {  
+  while true; do
+    if nmcli device status | grep -q 'wifi.*connected'; then
+      echo "  $(nmcli -t -f DEVICE connection show --active | grep wlan)"
+    elif nmcli device status | grep -q 'ethernet.*connected'; then
+      echo "  Wired"
+    else 
+      echo "  Offline"
+    fi
+    sleep 5
+  done
+}
+
+if [ "$1" = "--toggle" ]; then
+  toggle
+elif [ "$1" = "--icon" ]; then
+  get_icon
+else #default
+  get_status
+fi

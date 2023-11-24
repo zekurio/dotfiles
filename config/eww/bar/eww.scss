@@ -1,0 +1,32 @@
+*{
+  all:unset;
+  font-family: 'Maple Mono';
+  font-style: italic;
+  color: #dddddd;
+  font-size:16px;
+}
+
+.bar {
+  background-color: transparent;
+}
+
+.main-container {
+  padding:6px 12px;
+  background-color: #1e1e2e;
+  border-radius: 10px;
+  margin: 10px 10px 0 10px;
+}
+
+.workspaces {
+  margin-left: -6px;
+  padding-left:0px;
+}
+
+.time {
+  background: transparent;
+}
+
+.systray{
+  padding-right:8px;
+  font-family: initial;
+}
