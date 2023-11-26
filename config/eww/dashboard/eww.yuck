@@ -63,7 +63,7 @@
 ;; bluetooth
 (defwidget bluetooth []
   (box :class "genwin" :vexpand "false" :hexpand "false" :width 60
-	(button :class "btn_bluet" :onclick ""
+	(button :class "btn_bluet" :onclick "bash ../scripts/bluetooth"
       (label :text ""))))
 
 

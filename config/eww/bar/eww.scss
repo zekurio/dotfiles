@@ -1,9 +1,9 @@
 *{
   all:unset;
-  font-family: 'Maple Mono';
-  font-style: italic;
   color: #dddddd;
-  font-size:16px;
+  font-family: 'Maple Mono NF';
+  font-style: italic;
+  font-size:18px;
 }
 
 .bar {
@@ -28,5 +28,4 @@
 
 .systray{
   padding-right:8px;
-  font-family: initial;
 }

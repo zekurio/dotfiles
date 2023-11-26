@@ -11,4 +11,4 @@ if [[ ! -f "$FILE" ]]; then
  else
  	eww --config "$CFG" close dashboard
  	rm "$FILE"
- fi
+fi

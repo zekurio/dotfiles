@@ -44,13 +44,13 @@
     "pulseaudio": {
         "format": "<span foreground='#89b4fa'>{icon}</span>  {volume}%",
         "format-icons": ["\udb81\udd7f", "\udb81\udd80", "\udb81\udd7e"],
-        "on-click": "pavucontrol",
+        "on-click": "bash -c 'exec $HOME/.config/eww/scripts/launch_dashboard'",
         "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "format-muted": "<span foreground='#45475a'>\udb81\udf5f</span>  Muted"
     },
     "clock": {
-        "format": "<span foreground='#89b4fa'>\udb82\udd54</span>  {:%H:%M}",
-        "format-alt": "<span foreground='#89b4fa'>\udb80\udced</span>  {:%d.%m.%Y (%R)}"
+        "format": "<span foreground='#89b4fa'>\udb80\udced</span>  {:%d.%m.%Y (%R)}",
+        "on-click": "bash -c 'exec $HOME/.config/eww/scripts/launch_dashboard'"
     },
     "tray": {
         "icon-size": 16,

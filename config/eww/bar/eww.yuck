@@ -28,6 +28,4 @@
 			:onmiddleclick "bash ../scripts/audio --toggle-vol"
 		  ;;(label :text "${network}  ${battery} ${volume}")))
 		  (label :text "${network} ${volume}"))
-		(embed :windowname "trayer"))  ;; Embed trayer
-	)
-)
+	)))
