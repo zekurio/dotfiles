@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export PATH=$PATH:/opt/rocm/bin/
 export ZSH_DIR="${DOTFILES_DIR}/zsh"
 export PLUGINS_DIR="${ZSH_DIR}/plugins"
 export ZAP_DIR="${HOME}/.local/share/zap"

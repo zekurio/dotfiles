@@ -2,9 +2,9 @@
     "layer": "top",
     "width": 2540,
     "margin-top": 10,
-    "height": 30,
+    "height": 32,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["custom/playerctl"],
+    "modules-center": ["custom/playerctlicon", "custom/playerctl"],
     "modules-right": ["network", "pulseaudio", "clock", "tray"],
     "hyprland/workspaces": {
         "on-click": "activate",
@@ -17,11 +17,11 @@
     "hyprland/window": {
         "max-length": 100
     },
-    "custom/playerctl": {
-        "format": "{icon}   {}",
+    "custom/playerctlicon": {
+        "format": "{icon}",
         "return-type": "json",
         "max-length": 64,
-        "exec": "playerctl -p spotify -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "exec": "playerctl -p spotify -a metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
         "on-click-middle": "playerctl -p spotify play-pause",
         "on-click": "playerctl -p spotify previous",
         "on-click-right": "playerctl -p spotify next",
@@ -31,9 +31,19 @@
         },
         "tooltip": false
     },
+    "custom/playerctl": {
+        "format": "{}",
+        "return-type": "json",
+        "max-length": 64,
+        "exec": "playerctl -p spotify -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\"}' -F",
+        "on-click-middle": "playerctl -p spotify play-pause",
+        "on-click": "playerctl -p spotify previous",
+        "on-click-right": "playerctl -p spotify next",
+        "tooltip": false
+    },
     "network": {
         "format": "<span foreground='#89b4fa'>{icon}</span>",
-        "format-alt": "<span foreground='#89b4fa'>{icon}</span>  {ipaddr}/{cidr}",
+        "format-alt": "<span foreground='#89b4fa'>{icon}</span> {ipaddr}/{cidr}",
         "format-alt-click": "click-right",
         "format-icons": {
             "wifi": "",
@@ -42,14 +52,14 @@
         }
     },
     "pulseaudio": {
-        "format": "<span foreground='#89b4fa'>{icon}</span>  {volume}%",
+        "format": "<span foreground='#89b4fa'>{icon}</span> {volume}%",
         "format-icons": ["\udb81\udd7f", "\udb81\udd80", "\udb81\udd7e"],
         "on-click": "bash -c 'exec $HOME/.config/eww/scripts/launch_dashboard'",
         "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "format-muted": "<span foreground='#45475a'>\udb81\udf5f</span>  Muted"
     },
     "clock": {
-        "format": "<span foreground='#89b4fa'>\udb80\udced</span>  {:%d.%m.%Y (%R)}",
+        "format": "<span foreground='#89b4fa'>\udb80\udced</span> {:%d.%m.%Y (%R)}",
         "on-click": "bash -c 'exec $HOME/.config/eww/scripts/launch_dashboard'"
     },
     "tray": {

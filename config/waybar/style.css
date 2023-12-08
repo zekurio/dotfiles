@@ -1,5 +1,6 @@
 * {
   font-family: "Fira Sans";
+  font-weight: 400;
   font-size: 14px;
   color: #e0def4;
   border-radius: 10px;
@@ -11,17 +12,15 @@ window#waybar {
 }
 
 #workspaces,
-#window,
-#custom-playerctl,
 #network,
 #pulseaudio,
 #clock,
 #tray {
-  padding: 5px 15px;
+  padding: 5px 10px;
 }
 
 .modules-center * {
-  margin: 0px 10px;
+  margin: 0px 5px;
 }
 
 #workspaces button {
@@ -30,11 +29,16 @@ window#waybar {
 
 #window,
 #custom-playerctl {
-  font-weight: 500;
+  font-weight: 800;
+  font-style: italic;
+  font-family: 'Maple Mono'
 }
 
-#window {
-  margin-left: 10px;
+#network,
+#pulseaudio,
+#clock {
+  font-style: italic;
+  font-family: 'Maple Mono'
 }
 
 #workspaces {
