@@ -4,13 +4,6 @@ WALLPAPERS_DIR="$(xdg-user-dir PICTURES)/walls"
 
 current_wallpaper="$(readlink -f "$WALLPAPERS_DIR/current.wall")"
 
-# if swww is not running, we start it
-if ! pgrep swww; then
-    swww init
-fi
-
-swww img "$current_wallpaper"
-
 build_theme() {
     rows=$1
     cols=$2
@@ -26,7 +19,7 @@ ROFI_CMD="rofi -dmenu -i -show-icons -theme-str $(build_theme 3 6 6) -theme ${th
 choice=$(\
     ls --escape "$WALLPAPERS_DIR" | \
         while read A; do
-            echo -en "$A\x00icon\x1f$A\n"
+            echo -en "$A\x00icon\x1f$WALLPAPERS_DIR/$A\n"
         done | \
         $ROFI_CMD -p "Wallpaper" \
 )
