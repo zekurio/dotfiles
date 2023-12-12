@@ -53,7 +53,7 @@
     },
     "pulseaudio": {
         "format": "<span foreground='#89b4fa'>{icon}</span> {volume}%",
-        "format-icons": ["\udb81\udd7f", "\udb81\udd80", "\udb81\udd7e"],
+        "format-icons": ["󰕾"],
         "on-click": "bash -c 'exec $HOME/.config/eww/scripts/launch_dashboard'",
         "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "format-muted": "<span foreground='#45475a'>\udb81\udf5f</span>  Muted"

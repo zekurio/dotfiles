@@ -15,7 +15,6 @@ export ZAP_DIR="${HOME}/.local/share/zap"
 
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
-plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-completions"
 plug "zsh-users/zsh-history-substring-search"
