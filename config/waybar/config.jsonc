@@ -26,8 +26,8 @@
         "on-click": "playerctl -p spotify previous",
         "on-click-right": "playerctl -p spotify next",
         "format-icons": {
-          "Playing": "<span foreground='#a6e3a1'>\udb81\udcc7</span>",
-          "Paused": "<span foreground='#45475a'>\udb81\udcc7</span>"
+          "Playing": "<span foreground='#a6e3a1'></span>",
+          "Paused": "<span foreground='#45475a'></span>"
         },
         "tooltip": false
     },
@@ -47,13 +47,13 @@
         "format-alt-click": "click-right",
         "format-icons": {
             "wifi": "",
-            "ethernet": "",
+            "ethernet": "\uf0c1",
             "disconnected": ""
         }
     },
     "pulseaudio": {
         "format": "<span foreground='#89b4fa'>{icon}</span> {volume}%",
-        "format-icons": ["󰕾"],
+        "format-icons": ["\uf028"],
         "on-click": "bash -c 'exec $HOME/.config/eww/scripts/launch_dashboard'",
         "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "format-muted": "<span foreground='#45475a'>\udb81\udf5f</span>  Muted"

@@ -1,5 +1,5 @@
 * {
-  font-family: "Fira Sans";
+  font-family: 'Fira Sans';
   font-weight: 400;
   font-size: 14px;
   color: #e0def4;
@@ -31,14 +31,14 @@ window#waybar {
 #custom-playerctl {
   font-weight: 800;
   font-style: italic;
-  font-family: 'Maple Mono'
+  font-family: 'Maple Mono', 'CaskaydiaMono Nerd Font';
 }
 
 #network,
 #pulseaudio,
 #clock {
   font-style: italic;
-  font-family: 'Maple Mono'
+  font-family: 'Maple Mono', 'CaskaydiaMono Nerd Font';
 }
 
 #workspaces {

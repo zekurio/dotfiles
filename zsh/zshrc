@@ -8,20 +8,16 @@ fi
 export PATH=$PATH:/opt/rocm/bin/
 export ZSH_DIR="${DOTFILES_DIR}/zsh"
 export PLUGINS_DIR="${ZSH_DIR}/plugins"
-export ZAP_DIR="${HOME}/.local/share/zap"
+export TXT_PLUGINS="${PLUGINS_DIR}/zsh_plugins.txt"
+export STATIC_PLUGINS="${PLUGINS_DIR}/zsh_plugins.zsh"
 
-# Created by Zap installer
-[ -f "${ZAP_DIR}/zap.zsh" ] && source "${ZAP_DIR}/zap.zsh"
+source /usr/share/zsh-antidote/antidote.zsh
 
-plug "zsh-users/zsh-autosuggestions"
-plug "zap-zsh/supercharge"
-plug "zsh-users/zsh-syntax-highlighting"
-plug "zsh-users/zsh-completions"
-plug "zsh-users/zsh-history-substring-search"
-plug "romkatv/powerlevel10k"
-plug "$PLUGINS_DIR/aliases.zsh"
-plug "$PLUGINS_DIR/p10k.zsh"
+antidote bundle <$TXT_PLUGINS >$STATIC_PLUGINS
 
+source $STATIC_PLUGINS
+
+source $PLUGINS_DIR/p10k.zsh
 
 # Keybindings
 

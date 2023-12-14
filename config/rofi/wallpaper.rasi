@@ -17,7 +17,7 @@ configuration {
     alternate-background:        var(selected);
 	alternate-foreground:		 var(background);
 
-    font:                        "Maple Mono NF Italic 14";
+    font:                        "CaskaydiaMono Nerd Font Italic 14";
 }
 
 /*- Main Window -*/
