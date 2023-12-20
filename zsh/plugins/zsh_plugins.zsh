@@ -11,3 +11,5 @@ source /home/michael/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-
 source /home/michael/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-romkatv-SLASH-powerlevel10k/powerlevel9k.zsh-theme
 fpath+=( /home/michael/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-birdhackor-SLASH-zsh-exa-ls-plugin )
 source /home/michael/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-birdhackor-SLASH-zsh-exa-ls-plugin/zsh-exa-ls-plugin.plugin.zsh
+fpath+=( /home/michael/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-agkozak-SLASH-zsh-z )
+source /home/michael/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-agkozak-SLASH-zsh-z/zsh-z.plugin.zsh

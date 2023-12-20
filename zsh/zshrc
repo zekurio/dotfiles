@@ -10,6 +10,8 @@ export ZSH_DIR="${DOTFILES_DIR}/zsh"
 export PLUGINS_DIR="${ZSH_DIR}/plugins"
 export TXT_PLUGINS="${PLUGINS_DIR}/zsh_plugins.txt"
 export STATIC_PLUGINS="${PLUGINS_DIR}/zsh_plugins.zsh"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 source /usr/share/zsh-antidote/antidote.zsh
 
@@ -93,6 +95,11 @@ for key     kcap   seq        mode   widget (
   zle -N key-$key
   bindkey ${terminfo[$kcap]-$seq} key-$key
 }
+
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory histignorealldups sharehistory
 
 # Load and initialise completion system
 autoload -Uz compinit
