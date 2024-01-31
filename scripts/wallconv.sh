@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory where the wallpapers are stored
-wallpaper_dir="pictures/walls"
+wallpaper_dir="Pictures/walls"
 
 # Test if ImageMagick is installed
 if ! command -v convert &> /dev/null; then

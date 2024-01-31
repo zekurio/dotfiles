@@ -258,6 +258,9 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 // TODO change to nextDNS
 user_pref("network.trr.uri", "https://dns.quad9.net/dns-query");
 
+// PREF: ui density
+user_pref("browser.uidensity", 1);
+
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/

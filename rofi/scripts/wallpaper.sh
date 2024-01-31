@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPERS_DIR="$(xdg-user-dir PICTURES)/walls"
+WALLPAPERS_DIR="$(xdg-user-dir PICTURES)/Walls"
 
 current_wallpaper="$(readlink -f "$WALLPAPERS_DIR/current.wall")"
 

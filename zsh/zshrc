@@ -1,10 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
+export DOTFILES_DIR="${HOME}/.dotfiles"
 export PATH=$PATH:/opt/rocm/bin/
 export ZSH_DIR="${DOTFILES_DIR}/zsh"
 export PLUGINS_DIR="${ZSH_DIR}/plugins"
@@ -12,6 +6,7 @@ export TXT_PLUGINS="${PLUGINS_DIR}/zsh_plugins.txt"
 export STATIC_PLUGINS="${PLUGINS_DIR}/zsh_plugins.zsh"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export STARSHIP_CONFIG="${DOTFILES_DIR}/starship/starship.toml"
 
 source /usr/share/zsh-antidote/antidote.zsh
 
@@ -19,7 +14,7 @@ antidote bundle <$TXT_PLUGINS >$STATIC_PLUGINS
 
 source $STATIC_PLUGINS
 
-source $PLUGINS_DIR/p10k.zsh
+eval "$(starship init zsh)"
 
 # Keybindings
 
@@ -100,6 +95,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory histignorealldups sharehistory
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Load and initialise completion system
 autoload -Uz compinit
