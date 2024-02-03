@@ -233,6 +233,11 @@
   padding-left: 100%;
   background-image: var(--spice-equalizer);
 }
+:root .view-homeShortcutsGrid-equaliser {
+  background-image: var(--spice-equalizer);
+  background-size: cover;
+  padding-left: 35%;
+}
 :root .os-scrollbar-track,
 :root ::-webkit-scrollbar {
   width: 0.5em;
@@ -242,7 +247,7 @@
   background-color: var(--spice-text) !important;
   border-radius: 6px;
 }
-:root .GenericModal .main-duplicateTrackModal-container div {
+:root .GenericModal .main-duplicateTrackModal-container {
   background-color: var(--spice-card);
   color: var(--spice-subtext);
 }
@@ -255,6 +260,7 @@
 :root .GenericModal .main-duplicateTrackModal-container button:last-child > div {
   background-color: var(--spice-button);
 }
-:root .main-contextMenu-menuItemButton:hover, :root .main-contextMenu-menuItemButton:not([aria-checked=true]):focus {
+:root .main-contextMenu-menuItemButton:hover,
+:root .main-contextMenu-menuItemButton:not([aria-checked=true]):focus {
   color: var(--spice-subtext);
 }

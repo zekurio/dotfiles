@@ -2,7 +2,7 @@
 
 * {
   background:             #1e1e2e;
-  background-transparent: #1e1e2e33; 
+  background-transparent: #1e1e2e; 
   background-alt:         #6c7086FF;
   foreground:             #cdd6f4FF;
   foreground-alt:         #11111bFF;
