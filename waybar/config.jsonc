@@ -1,11 +1,13 @@
 {
     "layer": "top",
-    "width": 2540,
+    "width": 1900, //laptop
+    //"width": 2540, //desktop
     "margin-top": 10,
     "height": 32,
+    "spacing": 5,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/playerctlicon", "custom/playerctl"],
-    "modules-right": ["network", "pulseaudio", "clock", "tray"],
+    "modules-right": ["network", "pulseaudio", "battery", "clock", "tray"],
     "hyprland/workspaces": {
         "on-click": "activate",
         "format": "<span foreground='#89b4fa'>{icon}</span>",
@@ -15,7 +17,7 @@
         }
     },
     "hyprland/window": {
-        "max-length": 100
+        "max-length": 64
     },
     "custom/playerctlicon": {
         "format": "{icon}",
@@ -53,10 +55,21 @@
     },
     "pulseaudio": {
         "format": "<span foreground='#89b4fa'>{icon}</span> {volume}%",
-        "format-icons": ["\uf028"],
+        "format-icons": ["\uf026", "\uf027", "\uf028"],
         "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "format-muted": "<span foreground='#45475a'>\udb81\udf5f</span>  Muted"
     },
+    "battery": {
+        "bat": "BAT0",
+        "adapter": "ADP0",
+        "interval": 60,
+        "max-length": 20,
+        "format": "<span foreground='#89b4fa'>{icon}</span> {capacity}%",
+        "format-charging": "<span foreground='#a6e3a1'>\uf0e7</span> {capacity}%",
+        "format-plugged": "\uf1e6 {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["\uf244 ", "\uf243 ", "\uf242 ", "\uf241 ", "\uf240 "],
+      },
     "clock": {
         "format": "<span foreground='#89b4fa'>\udb80\udced</span> {:%d.%m.%Y (%R)}"
     },

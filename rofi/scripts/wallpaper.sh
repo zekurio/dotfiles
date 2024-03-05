@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPERS_DIR="$(xdg-user-dir PICTURES)/Walls"
+WALLPAPERS_DIR="/home/michael/.config/hypr/wallpapers"
 
 current_wallpaper="$(readlink -f "$WALLPAPERS_DIR/current.wall")"
 

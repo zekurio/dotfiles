@@ -1,7 +1,7 @@
 * {
   font-family: 'Fira Sans';
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   color: #e0def4;
   border-radius: 10px;
   background-color: rgba(30, 30, 46, 1);
@@ -16,7 +16,7 @@ window#waybar {
 #pulseaudio,
 #clock,
 #tray {
-  padding: 5px 10px;
+  padding: 0px 10px;
 }
 
 .modules-center * {
@@ -36,6 +36,7 @@ window#waybar {
 
 #network,
 #pulseaudio,
+#battery,
 #clock {
   font-style: italic;
   font-family: 'Maple Mono', 'CaskaydiaMono Nerd Font';
