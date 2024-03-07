@@ -1,6 +1,6 @@
 #!/bin/bash
 
-theme="$HOME/.config/rofi/clipboard.rasi"
+theme="$HOME/.config/rofi/config.rasi"
 
 # |  | cliphist decode | wl-copy
 

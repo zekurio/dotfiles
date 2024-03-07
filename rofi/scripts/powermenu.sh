@@ -13,7 +13,7 @@ $sleep
 $reboot
 $reboot_firmware
 $shutdown" | rofi -dmenu -i -p "Powermenu" \
-		  -theme "~/.config/rofi/powermenu.rasi")
+		  -theme "~/.config/rofi/config.rasi")
 
 if [ "$selected_option" == "$lock" ]
 then

@@ -12,9 +12,9 @@ build_theme() {
     echo "element{orientation:vertical;}element-text{horizontal-align:0.5;}element-icon{size:$icon_size.0000em;}listview{lines:$rows;columns:$cols;}"
 }
 
-theme="$HOME/.config/rofi/wallpaper.rasi"
+theme="$HOME/.config/rofi/config.rasi"
 
-ROFI_CMD="rofi -dmenu -i -show-icons -theme-str $(build_theme 3 6 6) -theme ${theme}"
+ROFI_CMD="rofi -dmenu -i -show-icons -theme-str $(build_theme 2 5 7) -theme ${theme}"
 
 choice=$(\
     ls --escape "$WALLPAPERS_DIR" | \
