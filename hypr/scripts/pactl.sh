@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 mute_in() {
     # toggle mute
@@ -38,10 +38,7 @@ mute_out() {
 
 }
 
-# get our arguments
 subcommand=$1
-
-# run the appropriate function
 case "$subcommand" in
     mute_in)
         mute_in ;;

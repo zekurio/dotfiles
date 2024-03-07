@@ -8,7 +8,7 @@
     "spacing": 5, // Gaps between modules (4px)
     "modules-left": ["custom/launcher", "cpu", "memory", "hyprland/workspaces", "custom/weather"],
     "modules-center": ["custom/playerctlicon", "custom/playerctl"],
-    "modules-right": ["tray", "backlight", "pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["tray", "backlight", "pulseaudio", "network", "bluetooth", "battery", "clock"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
@@ -65,7 +65,7 @@
         "format": "{icon} {volume}%",
         "format-bluetooth": "  {volume}%",
         "format-bluetooth-muted": " ",
-        "format-muted": "婢",
+        "format-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -79,7 +79,7 @@
     },
 
     "bluetooth": {
-        "on-click": "~/.config/waybar/scripts/rofi-bluetooth &",
+        "on-click": "~/.config/rofi/scripts/bluetooth.sh &",
         "format": " {status}",
     },
     "battery": {
@@ -115,8 +115,8 @@
         "on-click": "playerctl -p spotify previous",
         "on-click-right": "playerctl -p spotify next",
         "format-icons": {
-          "Playing": "<span foreground='#a6e3a1'></span>",
-          "Paused": "<span foreground='#45475a'></span>"
+          "Playing": "<span foreground='#a6e3a1'> </span>",
+          "Paused": "<span foreground='#45475a'> </span>"
         },
         "tooltip": false
     },

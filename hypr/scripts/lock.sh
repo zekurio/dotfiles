@@ -1,7 +1,7 @@
 #!/bin/bash
 
 swaylock -f \
-	--screenshots \
+	--image '/home/michael/.dotfiles/hypr/wallpapers/lock.png' \
 	--clock \
 	--indicator \
 	--indicator-radius 100 \
@@ -9,7 +9,7 @@ swaylock -f \
 	--effect-blur 10x5 \
 	--effect-vignette 0.5:0.5 \
 	--grace 0 \
-	--fade-in 0.2 \
+	--fade-in 1.2 \
 	--font "Fira Sans" \
 	--inside-color 1e1e2e \
 	--inside-clear-color 1e1e2e \
