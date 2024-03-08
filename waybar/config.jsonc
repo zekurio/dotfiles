@@ -54,10 +54,10 @@
         "on-click": "",
     },
     "network": {
-        "format-wifi": "  {signalStrength}%",
+        "format-wifi": " {signalStrength}%",
         "format-ethernet": " wired",
         "format-disconnected": "睊",
-        "on-click": "bash ~/.config/rofi/scripts/wifi-menu.sh",
+        "on-click": "alacritty -e nmtui",
         "format-disconnected": "Disconnected  ",
     },
 
@@ -79,7 +79,7 @@
     },
 
     "bluetooth": {
-        "on-click": "~/.config/rofi/scripts/bluetooth.sh &",
+        "on-click": "alacritty -e bluetoothctl",
         "format": " {status}",
     },
     "battery": {
