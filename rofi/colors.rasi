@@ -1,8 +1,10 @@
+/* COLORS - Catppuccin Mocha with Adjusted Colors for Readability */
+
 * {
-    background:     #1E1E2E; /* Mocha background */
-    background-alt: #313244; /* Mocha background-alt */
-    foreground:     #CDD6F4; /* Mocha foreground */
-    selected:       #89B4FA; /* Blue accent for selection */
-    active:         #414868; /* Mocha active */
-    urgent:         #F38BA8; /* Mocha urgent */
+  background:             #1E1E2E; /* Mocha base background */
+  background-transparent: #1E1E2EBB; /* Mocha base background with transparency */
+  background-alt:         #302D41; /* Mocha lighter background variant */
+  foreground:             #CDD6F4; /* Mocha foreground text */
+  foreground-alt:         #1E1E2E; /* Using Mocha base background color for better contrast */
+  selected:               #89B4FA; /* Blue accent for selections */
 }

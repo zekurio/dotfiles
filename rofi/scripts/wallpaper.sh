@@ -14,7 +14,7 @@ build_theme() {
 
 theme="$HOME/.config/rofi/config.rasi"
 
-ROFI_CMD="rofi -dmenu -i -show-icons -theme-str $(build_theme 2 5 7) -theme ${theme}"
+ROFI_CMD="rofi -dmenu -i -show-icons -theme-str $(build_theme 3 5 3) -theme ${theme}"
 
 choice=$(\
     ls --escape "$WALLPAPERS_DIR" | \
