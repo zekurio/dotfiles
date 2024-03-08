@@ -232,7 +232,6 @@ label:focus {
 
 tooltip * {
 	background:	transparent;
-  font-family: Fira Sans;
 }
 
 tooltip.background {
