@@ -30,70 +30,65 @@
         "spacing": 10
     },
     "clock": {
-        "format": "<span color='#bf616a'>\udb80\udced </span>{:%a %b %d}",
-        "format-alt": "<span color='#bf616a'>\udb82\udd54 </span>{:%I:%M %p}",
+        "format": "<span color='#f5c2e7'>\udb80\udced</span> {:%a %b %d}",
+        "format-alt": "<span color='#f5c2e7'>\udb82\udd54</span> {:%I:%M %p}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
     },
-
+    
     "cpu": {
-      "interval": 10,
-      "format": "\udb81\ude1a {}%",
-      "max-length": 10,
-      "on-click": "",
-    },
-    "memory": {
-        "interval": 30,
-        "format": "\udb81\udcc5 {}%",
-        "format-alt":"\udb86\udd4e {used:0.1f}G",
+        "format": "<span color='#eba0ac'>\udb81\ude1a</span> {}%",
+        "interval": 10,
         "max-length": 10,
-    },
-    "backlight": {
-        "device": "eDP-1",
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-click": "",
     },
+    
+    "memory": {
+        "format": "<span color='#f9e2af'>\udb81\udcc5</span> {}%",
+        "format-alt":"<span color='#f9e2af'>\udb86\udd4e</span> {used:0.1f}G",
+        "interval": 30,
+        "max-length": 10,
+    },
+    
+    "backlight": {
+        "format": "<span color='#94e2d5'>{icon}</span> {percent}%",
+        "format-icons": ["\ue38d", "\ue3d3", "\ue3d1", "\ue3cf", "\ue3ce", "\ue3cd", "\ue3ca", "\ue3c8", "\ue39b"],
+        "on-click": "",
+    },
+    
     "network": {
-        "format-wifi": "\udb81\udda9 {signalStrength}%",
-        "format-ethernet": "\udb80\ude00 wired",
-        "format-disconnected": "\udb85\ude16 disconnected",
+        "format-wifi": "<span color='#eba0ac'>\udb81\udda9</span> {signalStrength}%",
+        "format-ethernet": "<span color='#eba0ac'>\udb80\ude00</span> wired",
+        "format-disconnected": "<span color='#f38ba8'>\udb85\ude16</span> disconnected",
         "on-click": "alacritty -e nmtui",
     },
-
+    
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "\udb80\udecb \udb80\udcaf {volume}%",
-        "format-bluetooth-muted": "\udb81\udfce \udb80\udcaf",
-        "format-muted": "\udb81\udf5f",
+        "format": "<span color='#89dceb'>{icon}</span> {volume}%",
+        "format-bluetooth": "<span color='#89dceb'>\udb80\udecb \udb80\udcaf</span> {volume}%",
+        "format-bluetooth-muted": "<span color='#89dceb'>\udb81\udfce \udb80\udcaf</span>",
+        "format-muted": "<span color='#89dceb'>\udb81\udf5f</span>",
         "format-icons": {
             "headphone": "\udb80\udecb",
             "default": ["\udb81\udd7f", "\udb81\udd80", "\udb81\udd7e"]
         },
         "on-click": "pavucontrol"
     },
-
+    
     "bluetooth": {
+        "format": "<span color='#74c7ec'>\udb80\udcaf</span> {status}",
         "on-click": "alacritty -e bluetoothctl",
-        "format": "\udb80\udcaf {status}",
     },
+    
     "battery": {
-      "bat": "BAT0",
-      "adapter": "ADP0",
-      "interval": 60,
-      "states": {
-          "warning": 30,
-          "critical": 15
-      },
-      "max-length": 20,
-      "format": "{icon} {capacity}%",
-      "format-warning": "{icon} {capacity}%",
-      "format-critical": "{icon} {capacity}%",
-      "format-charging": "\udb80\udc84 {capacity}%",
-      "format-plugged": "\udb81\udea5  {capacity}%",
-      "format-alt": "{icon} {time}",
-      "format-full": "\udb81\udea5  {capacity}%",
-      "format-icons": ["\udb80\udc7a ", "\udb80\udc7b ", "\udb80\udc7c ", "\udb80\udc7d ", "\udb80\udc7e ", "\udb80\udc7f", "\udb80\udc80", "\udb80\udc81", "\udb80\udc82"],
-    },
+        "format": "<span color='#b4befe'>{icon}</span> {capacity}%",
+        "format-warning": "<span color='#b4befe'>{icon}</span> {capacity}%",
+        "format-critical": "<span color='#b4befe'>{icon}</span> {capacity}%",
+        "format-charging": "<span color='#a6e3a1'>\udb80\udc84</span> {capacity}%",
+        "format-plugged": "<span color='#a6e3a1'>\udb81\udea5</span>  {capacity}%",
+        "format-alt": "<span color='#b4befe'>{icon}</span> {time}",
+        "format-full": "<span color='#a6e3a1'>\udb81\udea5</span>  {capacity}%",
+        "format-icons": ["\udb80\udc7a ", "\udb80\udc7b ", "\udb80\udc7c ", "\udb80\udc7d ", "\udb80\udc7e ", "\udb80\udc7f", "\udb80\udc80", "\udb80\udc81", "\udb80\udc82"],
+    },    
     "custom/weather": {
       "exec": "python3 ~/.config/waybar/scripts/weather.py",
       "restart-interval": 300,
