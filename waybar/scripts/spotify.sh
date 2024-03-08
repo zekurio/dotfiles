@@ -9,11 +9,11 @@ title=$(playerctl -p spotify metadata title)
 
 # Determine icon color based on player status
 if [ "$status" = "Playing" ]; then
-  icon="<span foreground='#a6e3a1'></span>"
+  icon="<span foreground='#a6e3a1'>\udb81\udcc7</span>"
 elif [ "$status" = "Paused" ]; then
-  icon="<span foreground='#45475a'></span>"
+  icon="<span foreground='#45475a'>\udb81\udcc7</span>"
 else
-  icon="" # Default icon without color
+  icon="\udb81\udcc7" # Default icon without color
 fi
 
 # Output JSON formatted string for Waybar

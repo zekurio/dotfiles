@@ -30,21 +30,21 @@
         "spacing": 10
     },
     "clock": {
-        "format": "<span color='#bf616a'> </span>{:%a %b %d}",
-        "format-alt": "<span color='#bf616a'> </span>{:%I:%M %p}",
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "<span color='#bf616a'>\udb80\udced </span>{:%a %b %d}",
+        "format-alt": "<span color='#bf616a'>\udb82\udd54 </span>{:%I:%M %p}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
     },
 
     "cpu": {
       "interval": 10,
-      "format": "\uf2db {}%",
+      "format": "\udb81\ude1a {}%",
       "max-length": 10,
       "on-click": "",
     },
     "memory": {
         "interval": 30,
-        "format": " {}%",
-        "format-alt":" {used:0.1f}G",
+        "format": "\udb81\udcc5 {}%",
+        "format-alt":"\udb86\udd4e {used:0.1f}G",
         "max-length": 10,
     },
     "backlight": {
@@ -54,33 +54,27 @@
         "on-click": "",
     },
     "network": {
-        "format-wifi": " {signalStrength}%",
-        "format-ethernet": " wired",
-        "format-disconnected": "睊",
+        "format-wifi": "\udb81\udda9 {signalStrength}%",
+        "format-ethernet": "\udb80\ude00 wired",
+        "format-disconnected": "\udb85\ude16 disconnected",
         "on-click": "alacritty -e nmtui",
-        "format-disconnected": "Disconnected  ",
     },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-bluetooth": "  {volume}%",
-        "format-bluetooth-muted": " ",
-        "format-muted": "",
+        "format-bluetooth": "\udb80\udecb \udb80\udcaf {volume}%",
+        "format-bluetooth-muted": "\udb81\udfce \udb80\udcaf",
+        "format-muted": "\udb81\udf5f",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "headphone": "\udb80\udecb",
+            "default": ["\udb81\udd7f", "\udb81\udd80", "\udb81\udd7e"]
         },
         "on-click": "pavucontrol"
     },
 
     "bluetooth": {
         "on-click": "alacritty -e bluetoothctl",
-        "format": " {status}",
+        "format": "\udb80\udcaf {status}",
     },
     "battery": {
       "bat": "BAT0",
@@ -94,11 +88,11 @@
       "format": "{icon} {capacity}%",
       "format-warning": "{icon} {capacity}%",
       "format-critical": "{icon} {capacity}%",
-      "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
-      "format-plugged": "  {capacity}%",
+      "format-charging": "\udb80\udc84 {capacity}%",
+      "format-plugged": "\udb81\udea5  {capacity}%",
       "format-alt": "{icon} {time}",
-      "format-full": "  {capacity}%",
-      "format-icons": [" ", " ", " ", " ", " "],
+      "format-full": "\udb81\udea5  {capacity}%",
+      "format-icons": ["\udb80\udc7a ", "\udb80\udc7b ", "\udb80\udc7c ", "\udb80\udc7d ", "\udb80\udc7e ", "\udb80\udc7f", "\udb80\udc80", "\udb80\udc81", "\udb80\udc82"],
     },
     "custom/weather": {
       "exec": "python3 ~/.config/waybar/scripts/weather.py",
@@ -116,7 +110,7 @@
         "tooltip": false
     },
     "custom/launcher": {
-        "format": " <span color='#6a92d7'> </span>",
+        "format": " <span color='#6a92d7'>\udb83\udd46 </span>",
         "on-click": "rofi -show drun",
     },
 }
