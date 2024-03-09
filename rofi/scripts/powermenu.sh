@@ -17,10 +17,10 @@ $shutdown" | rofi -dmenu -i -p "Powermenu" \
 
 if [ "$selected_option" == "$lock" ]
 then
-  gtklock
+  ~/.config/hypr/scripts/lock.sh
 elif [ "$selected_option" == "$logout" ]
 then
-  loginctl terminate-user `whoami`
+  hyprctl dispatch exit
 elif [ "$selected_option" == "$shutdown" ]
 then
   systemctl poweroff

@@ -1,26 +1,23 @@
 {
     "height": 30, // Waybar height (to be removed for auto height)
     "layer": "top", // Waybar at top layer
-    "margin-top": 6,
+    "margin-top": 10,
     "margin-left": 10,
     "margin-bottom": 0,
     "margin-right": 10,
     "spacing": 5, // Gaps between modules (4px)
-    "modules-left": ["custom/launcher", "cpu", "memory", "hyprland/workspaces", "custom/weather"],
+    "modules-left": ["cpu", "memory", "hyprland/workspaces", "custom/weather"],
     "modules-center": ["custom/playerctlicon", "custom/playerctl"],
     "modules-right": ["tray", "backlight", "pulseaudio", "network", "bluetooth", "battery", "clock"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
       "format-icons": {
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "urgent": "",
-        "active": "",
-        "default": ""
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5"
       }
     },
     "hyprland/window": {
@@ -30,8 +27,8 @@
         "spacing": 10
     },
     "clock": {
-        "format": "<span color='#f5c2e7'>\udb80\udced</span> {:%a %b %d}",
-        "format-alt": "<span color='#f5c2e7'>\udb82\udd54</span> {:%I:%M %p}",
+        "format": "<span color='#f5c2e7'>\udb80\udced</span> {:%d-%m-%Y}",
+        "format-alt": "<span color='#f5c2e7'>\udb82\udd54</span> {:%H.%M}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
     },
     
@@ -45,7 +42,7 @@
     "memory": {
         "format": "<span color='#f9e2af'>\udb81\udcc5</span> {}%",
         "format-alt":"<span color='#f9e2af'>\udb86\udd4e</span> {used:0.1f}G",
-        "interval": 30,
+        "interval": 10,
         "max-length": 10,
     },
     
@@ -53,6 +50,7 @@
         "format": "<span color='#94e2d5'>{icon}</span> {percent}%",
         "format-icons": ["\ue38d", "\ue3d3", "\ue3d1", "\ue3cf", "\ue3ce", "\ue3cd", "\ue3ca", "\ue3c8", "\ue39b"],
         "on-click": "",
+        "tooltip": false,
     },
     
     "network": {
@@ -103,10 +101,6 @@
         "on-click": "playerctl -p spotify previous",
         "on-click-right": "playerctl -p spotify next",
         "tooltip": false
-    },
-    "custom/launcher": {
-        "format": " <span color='#6a92d7'>\udb83\udd46 </span>",
-        "on-click": "rofi -show drun",
-    },
+    }
 }
 

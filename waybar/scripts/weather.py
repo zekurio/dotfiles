@@ -55,21 +55,35 @@ WEATHER_CODES = {
     '395': '\u2744\ufe0f'
 }
 
-data = {}
-
-
-weather = requests.get("https://wttr.in/?format=j1").json()
-
-
 def format_time(time):
-    return time.replace("00", "").zfill(2)
+    """Formats the time into 24-hour format (HH:MM), handling special case '0'."""
+    if time == '0':
+        return '00:00'  # Handle special case for midnight
+    while len(time) < 4:
+        time = '0' + time  # Pad with leading zeros if necessary
+    time_obj = datetime.strptime(time, "%H%M")
+    return time_obj.strftime("%H:%M")
+
+def convert_to_24h(time_str):
+    """Converts time from 12-hour AM/PM format to 24-hour format."""
+    # Parse the time string into a datetime object
+    time_obj = datetime.strptime(time_str, "%I:%M %p")
+    # Return the time in 24-hour format
+    return time_obj.strftime("%H:%M")
+
+def format_date(date):
+    """Formats the date into DD-MM-YYYY format."""
+    date_obj = datetime.strptime(date, "%Y-%m-%d")
+    return date_obj.strftime("%d-%m-%Y")
 
 
 def format_temp(temp):
-    return (hour['FeelsLikeC']+"°C").ljust(3)
+    """Formats the temperature with degree symbol and padding."""
+    return (temp + "°C").ljust(3)
 
 
 def format_chances(hour):
+    """Formats the weather event chances."""
     chances = {
         "chanceoffog": "Fog",
         "chanceoffrost": "Frost",
@@ -84,32 +98,38 @@ def format_chances(hour):
     conditions = []
     for event in chances.keys():
         if int(hour[event]) > 0:
-            conditions.append(chances[event]+" "+hour[event]+"%")
+            conditions.append(chances[event] + " " + hour[event] + "%")
     return ", ".join(conditions)
 
 
+# Get weather data from wttr.in
+weather = requests.get("https://wttr.in/?format=j1").json()
+
+# Construct the output data
+data = {}
 data['text'] = WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + \
-    " "+weather['current_condition'][0]['FeelsLikeC']+"°C"
+               " " + weather['current_condition'][0]['FeelsLikeC'] + "°C"
 
 data['tooltip'] = f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_C']}°C</b>\n"
 data['tooltip'] += f"Feels like: {weather['current_condition'][0]['FeelsLikeC']}°C\n"
-data['tooltip'] += f"Wind: {weather['current_condition'][0]['windspeedKmph']}Km/h\n"
+data['tooltip'] += f"Wind: {weather['current_condition'][0]['windspeedKmph']} Km/h\n"
 data['tooltip'] += f"Humidity: {weather['current_condition'][0]['humidity']}%\n"
+
 for i, day in enumerate(weather['weather']):
     data['tooltip'] += f"\n<b>"
     if i == 0:
         data['tooltip'] += "Today, "
     if i == 1:
         data['tooltip'] += "Tomorrow, "
-    data['tooltip'] += f"{day['date']}</b>\n"
+    data['tooltip'] += f"{format_date(day['date'])}</b>\n"
     data['tooltip'] += f"\u2b06\ufe0f {day['maxtempC']}°C \u2b07\ufe0f {day['mintempC']}°C "
-    data['tooltip'] += f"\U0001f305 {day['astronomy'][0]['sunrise']} \U0001f307 {day['astronomy'][0]['sunset']}\n"
+    data['tooltip'] += f"\U0001f305 {convert_to_24h(day['astronomy'][0]['sunrise'])} \U0001f307 {convert_to_24h(day['astronomy'][0]['sunset'])}\n"
     for hour in day['hourly']:
         if i == 0:
-            if int(format_time(hour['time'])) < datetime.now().hour-2:
+            if int(format_time(hour['time']).split(':')[0]) < datetime.now().hour - 2:
                 continue
         data['tooltip'] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['FeelsLikeC'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
 
-data['tooltip'] = data['tooltip'].rstrip('\n')
+data['tooltip'] = data['tooltip'].rstrip('\n')  # Remove trailing newline
 
 print(json.dumps(data))

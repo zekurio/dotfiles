@@ -54,20 +54,10 @@ window#waybar.hidden {
 #bluetooth,
 #custom-playerctl,
 #custom-weather,
-#custom-launcher,
 #disk {
   padding: 0 10px;
   border-radius: 10px;
   background-color: #1e1e2e; /* Background color for modules */
-}
-
-#battery.charging,
-#battery.full,
-#battery.plugged,
-#battery.critical:not(.charging),
-#bluetooth.disconnected,
-#network.disconnected {
-  /* No specific color here; handle state-based colors in JSON */
 }
 
 @keyframes blink {
