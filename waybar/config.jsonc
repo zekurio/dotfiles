@@ -8,7 +8,7 @@
     "spacing": 5, // Gaps between modules (4px)
     "modules-left": ["cpu", "memory", "hyprland/workspaces", "custom/weather"],
     "modules-center": ["custom/playerctlicon", "custom/playerctl"],
-    "modules-right": ["tray", "backlight", "pulseaudio", "network", "bluetooth", "battery", "clock"],
+    "modules-right": ["tray", "pulseaudio", "network", "bluetooth", "clock"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
@@ -27,21 +27,21 @@
         "spacing": 10
     },
     "clock": {
-        "format": "<span color='#f5c2e7'>\udb80\udced</span> {:%d-%m-%Y}",
-        "format-alt": "<span color='#f5c2e7'>\udb82\udd54</span> {:%H.%M}",
+        "format": "<span color='#89b4fa'>\udb80\udced</span> {:%d-%m-%Y}",
+        "format-alt": "<span color='#89b4fa'>\udb82\udd54</span> {:%H:%M}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
     },
     
     "cpu": {
-        "format": "<span color='#eba0ac'>\udb81\ude1a</span> {}%",
+        "format": "<span color='#89b4fa'>\udb81\ude1a</span> {}%",
         "interval": 10,
         "max-length": 10,
         "on-click": "",
     },
     
     "memory": {
-        "format": "<span color='#f9e2af'>\udb81\udcc5</span> {}%",
-        "format-alt":"<span color='#f9e2af'>\udb86\udd4e</span> {used:0.1f}G",
+        "format": "<span color='#89b4fa'>\udb81\udcc5</span> {}%",
+        "format-alt":"<span color='#89b4fa'>\udb86\udd4e</span> {used:0.1f}G",
         "interval": 10,
         "max-length": 10,
     },
@@ -54,17 +54,18 @@
     },
     
     "network": {
-        "format-wifi": "<span color='#eba0ac'>\udb81\udda9</span> {signalStrength}%",
-        "format-ethernet": "<span color='#eba0ac'>\udb80\ude00</span> wired",
+        "format-wifi": "<span color='#89b4fa'>\udb81\udda9</span> {essid} {signalStrength}%",
+        "format-ethernet": "<span color='#89b4fa'>\udb80\ude00</span> wired",
         "format-disconnected": "<span color='#f38ba8'>\udb85\ude16</span> disconnected",
-        "on-click": "alacritty -e nmtui",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "alacritty -T alacritty-util -e nmtui",
     },
     
     "pulseaudio": {
-        "format": "<span color='#89dceb'>{icon}</span> {volume}%",
-        "format-bluetooth": "<span color='#89dceb'>\udb80\udecb \udb80\udcaf</span> {volume}%",
-        "format-bluetooth-muted": "<span color='#89dceb'>\udb81\udfce \udb80\udcaf</span>",
-        "format-muted": "<span color='#89dceb'>\udb81\udf5f</span>",
+        "format": "<span color='#89b4fa'>{icon}</span> {volume}%",
+        "format-bluetooth": "<span color='#89b4fa'>\udb80\udecb \udb80\udcaf</span> {volume}%",
+        "format-bluetooth-muted": "<span color='#89b4fa'>\udb81\udfce \udb80\udcaf</span>",
+        "format-muted": "<span color='#f38ba8'>\udb81\udf5f</span>",
         "format-icons": {
             "headphone": "\udb80\udecb",
             "default": ["\udb81\udd7f", "\udb81\udd80", "\udb81\udd7e"]
@@ -73,17 +74,21 @@
     },
     
     "bluetooth": {
-        "format": "<span color='#74c7ec'>\udb80\udcaf</span> {status}",
-        "on-click": "alacritty -e bluetoothctl",
+        "format": "<span color='#89b4fa'>\udb80\udcaf</span> {status}",
+        "on-click": "alacritty -T alacritty-util -e bluetoothctl",
     },
     
     "battery": {
-        "format": "<span color='#b4befe'>{icon}</span> {capacity}%",
-        "format-warning": "<span color='#b4befe'>{icon}</span> {capacity}%",
-        "format-critical": "<span color='#b4befe'>{icon}</span> {capacity}%",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "<span color='#89b4fa'>{icon}</span> {capacity}%",
+        "format-warning": "<span color='#fab387'>{icon}</span> {capacity}%",
+        "format-critical": "<span color='#f38ba8'>{icon}</span> {capacity}%",
         "format-charging": "<span color='#a6e3a1'>\udb80\udc84</span> {capacity}%",
         "format-plugged": "<span color='#a6e3a1'>\udb81\udea5</span>  {capacity}%",
-        "format-alt": "<span color='#b4befe'>{icon}</span> {time}",
+        "format-alt": "<span color='#89b4fa'>{icon}</span> {time}",
         "format-full": "<span color='#a6e3a1'>\udb81\udea5</span>  {capacity}%",
         "format-icons": ["\udb80\udc7a ", "\udb80\udc7b ", "\udb80\udc7c ", "\udb80\udc7d ", "\udb80\udc7e ", "\udb80\udc7f", "\udb80\udc80", "\udb80\udc81", "\udb80\udc82"],
     },    
