@@ -7,18 +7,11 @@
     "margin-right": 10,
     "spacing": 5, // Gaps between modules (4px)
     "modules-left": ["cpu", "memory", "hyprland/workspaces", "custom/weather"],
-    "modules-center": ["custom/playerctlicon", "custom/playerctl"],
+    "modules-center": ["custom/playerctl"],
     "modules-right": ["tray", "pulseaudio", "network", "bluetooth", "clock"],
     "hyprland/workspaces": {
       "format": "{icon}",
-      "on-click": "activate",
-      "format-icons": {
-        "1": "1",
-        "2": "2",
-        "3": "3",
-        "4": "4",
-        "5": "5"
-      }
+      "on-click": "activate"
     },
     "hyprland/window": {
         "format": "{}"
@@ -29,21 +22,21 @@
     "clock": {
         "format": "<span color='#89b4fa'>\udb80\udced</span> {:%d-%m-%Y}",
         "format-alt": "<span color='#89b4fa'>\udb82\udd54</span> {:%H:%M}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
     
     "cpu": {
         "format": "<span color='#89b4fa'>\udb81\ude1a</span> {}%",
         "interval": 10,
         "max-length": 10,
-        "on-click": "",
+        "on-click": ""
     },
     
     "memory": {
         "format": "<span color='#89b4fa'>\udb81\udcc5</span> {}%",
         "format-alt":"<span color='#89b4fa'>\udb86\udd4e</span> {used:0.1f}G",
         "interval": 10,
-        "max-length": 10,
+        "max-length": 10
     },
     
     "backlight": {
