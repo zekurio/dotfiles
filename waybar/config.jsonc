@@ -50,8 +50,7 @@
         "format-wifi": "<span color='#89b4fa'>\udb81\udda9</span> {essid} {signalStrength}%",
         "format-ethernet": "<span color='#89b4fa'>\udb80\ude00</span> wired",
         "format-disconnected": "<span color='#f38ba8'>\udb85\ude16</span> disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "alacritty -T alacritty-util -e nmtui",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
     },
     
     "pulseaudio": {
@@ -68,7 +67,7 @@
     
     "bluetooth": {
         "format": "<span color='#89b4fa'>\udb80\udcaf</span> {status}",
-        "on-click": "alacritty -T alacritty-util -e bluetoothctl",
+        "on-click": "kitty --class kitty-util bluetoothctl",
     },
     
     "battery": {

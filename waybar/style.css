@@ -40,6 +40,12 @@ window#waybar.hidden {
   background-color: #eb4d4b;
 }
 
+#workspaces button:hover {
+  color: #cdd6f4;
+  background-color: rgba(49, 50, 68, 0.5);
+}
+
+
 #window,
 #workspaces,
 #clock,
