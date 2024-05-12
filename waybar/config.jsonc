@@ -1,0 +1,112 @@
+{
+    "height": 30, // Waybar height (to be removed for auto height)
+    "layer": "top", // Waybar at top layer
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-bottom": 0,
+    "margin-right": 10,
+    "spacing": 5, // Gaps between modules (4px)
+    "modules-left": ["cpu", "memory", "hyprland/workspaces"],
+    "modules-center": ["custom/playerctlicon", "custom/playerctl"],
+    "modules-right": ["tray", "pulseaudio", "network", "bluetooth", "clock"],
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-click": "activate"
+    },
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format": "<span color='#89b4fa'>\udb80\udced</span> {:%d-%m-%Y}",
+        "format-alt": "<span color='#89b4fa'>\udb82\udd54</span> {:%H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    
+    "cpu": {
+        "format": "<span color='#89b4fa'>\udb81\ude1a</span> {}%",
+        "interval": 10,
+        "max-length": 10,
+        "on-click": ""
+    },
+    
+    "memory": {
+        "format": "<span color='#89b4fa'>\udb81\udcc5</span> {}%",
+        "format-alt":"<span color='#89b4fa'>\udb86\udd4e</span> {used:0.1f}G",
+        "interval": 10,
+        "max-length": 10
+    },
+    
+    "backlight": {
+        "format": "<span color='#94e2d5'>{icon}</span> {percent}%",
+        "format-icons": ["\ue38d", "\ue3d3", "\ue3d1", "\ue3cf", "\ue3ce", "\ue3cd", "\ue3ca", "\ue3c8", "\ue39b"],
+        "on-click": "",
+        "tooltip": false,
+    },
+    
+    "network": {
+        "format-wifi": "<span color='#89b4fa'>\udb81\udda9</span> {essid} {signalStrength}%",
+        "format-ethernet": "<span color='#89b4fa'>\udb80\ude00</span> wired",
+        "format-disconnected": "<span color='#f38ba8'>\udb85\ude16</span> disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    },
+    
+    "pulseaudio": {
+        "format": "<span color='#89b4fa'>{icon}</span> {volume}%",
+        "format-bluetooth": "<span color='#89b4fa'>\udb80\udecb \udb80\udcaf</span> {volume}%",
+        "format-bluetooth-muted": "<span color='#89b4fa'>\udb81\udfce \udb80\udcaf</span>",
+        "format-muted": "<span color='#f38ba8'>\udb81\udf5f</span>",
+        "format-icons": {
+            "headphone": "\udb80\udecb",
+            "default": ["\udb81\udd7f", "\udb81\udd80", "\udb81\udd7e"]
+        },
+        "on-click": "pavucontrol"
+    },
+    
+    "bluetooth": {
+        "format": "<span color='#89b4fa'>\udb80\udcaf</span> {status}",
+        "on-click": "kitty --class kitty-util bluetoothctl",
+    },
+    
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "<span color='#89b4fa'>{icon}</span> {capacity}%",
+        "format-warning": "<span color='#fab387'>{icon}</span> {capacity}%",
+        "format-critical": "<span color='#f38ba8'>{icon}</span> {capacity}%",
+        "format-charging": "<span color='#a6e3a1'>\udb80\udc84</span> {capacity}%",
+        "format-plugged": "<span color='#a6e3a1'>\udb81\udea5</span>  {capacity}%",
+        "format-alt": "<span color='#89b4fa'>{icon}</span> {time}",
+        "format-full": "<span color='#a6e3a1'>\udb81\udea5</span>  {capacity}%",
+        "format-icons": ["\udb80\udc7a ", "\udb80\udc7b ", "\udb80\udc7c ", "\udb80\udc7d ", "\udb80\udc7e ", "\udb80\udc7f", "\udb80\udc80", "\udb80\udc81", "\udb80\udc82"],
+    },
+    "custom/playerctlicon": {
+        "format": "{icon}",
+        "return-type": "json",
+        "max-length": 64,
+        "exec": "playerctl -p spotify -a metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click-middle": "playerctl -p spotify play-pause",
+        "on-click": "playerctl -p spotify previous",
+        "on-click-right": "playerctl -p spotify next",
+        "format-icons": {
+          "Playing": "<span foreground='#a6e3a1'></span>",
+          "Paused": "<span foreground='#45475a'></span>"
+        },
+        "tooltip": false
+    },
+    "custom/playerctl": {
+        "format": "{}",
+        "return-type": "json",
+        "max-length": 64,
+        "exec": "playerctl -p spotify -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\"}' -F",
+        "on-click-middle": "playerctl -p spotify play-pause",
+        "on-click": "playerctl -p spotify previous",
+        "on-click-right": "playerctl -p spotify next",
+        "tooltip": false
+    }
+}
+
