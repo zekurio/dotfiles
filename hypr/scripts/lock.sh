@@ -1,7 +1,7 @@
 #!/bin/bash
 
 swaylock -f \
-	--image '/home/michael/.dotfiles/hypr/wallpapers/lock.png' \
+	--image '$(xdg-user-dir PICTURES)/Wallpapers/lock.png' \
 	--clock \
 	--indicator \
 	--indicator-radius 100 \

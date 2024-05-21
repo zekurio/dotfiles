@@ -1,17 +1,39 @@
 {
     "height": 30, // Waybar height (to be removed for auto height)
     "layer": "top", // Waybar at top layer
-    "margin-top": 10,
-    "margin-left": 10,
+    "margin-top": 5,
+    "margin-left": 5,
     "margin-bottom": 0,
-    "margin-right": 10,
+    "margin-right": 5,
     "spacing": 5, // Gaps between modules (4px)
-    "modules-left": ["cpu", "memory", "hyprland/workspaces"],
-    "modules-center": ["custom/playerctlicon", "custom/playerctl"],
-    "modules-right": ["tray", "pulseaudio", "network", "bluetooth", "clock"],
+    "modules-left": ["custom/launcher", "hyprland/workspaces"],
+    "modules-center": ["custom/playerctl"],
+    "modules-right": ["tray", "group/group-applets", "clock"],
+    "custom/launcher": {
+        "format": "󰣇",
+        "on-click": "bash ~/.config/rofi/launcher/launcher.sh",
+        "on-click-right": "bash ~/.config/rofi/powermenu/powermenu.sh"
+    },
     "hyprland/workspaces": {
-      "format": "{icon}",
-      "on-click": "activate"
+        "disable-scroll": false,
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "〇"
+        },
+        "persistent-workspaces": {
+            "*": 10
+        }
     },
     "hyprland/window": {
         "format": "{}"
@@ -20,44 +42,30 @@
         "spacing": 10
     },
     "clock": {
-        "format-alt": "<span color='#89b4fa'>\udb80\udced</span> {:%d-%m-%Y}",
-        "format": "<span color='#89b4fa'>\udb82\udd54</span> {:%H:%M}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>"
-    },
-    
-    "cpu": {
-        "format": "<span color='#89b4fa'>\udb81\ude1a</span> {}%",
-        "interval": 10,
-        "max-length": 10,
-        "on-click": ""
-    },
-    
-    "memory": {
-        "format": "<span color='#89b4fa'>\udb81\udcc5</span> {}%",
-        "format-alt":"<span color='#89b4fa'>\udb86\udd4e</span> {used:0.1f}G",
-        "interval": 10,
-        "max-length": 10
+        "format-alt": "{:%d-%m-%Y}",
+        "format": "{:%H:%M:%OS}",
+        "interval": 1
     },
     
     "backlight": {
-        "format": "<span color='#94e2d5'>{icon}</span> {percent}%",
+        "format": "{icon}{percent}%",
         "format-icons": ["\ue38d", "\ue3d3", "\ue3d1", "\ue3cf", "\ue3ce", "\ue3cd", "\ue3ca", "\ue3c8", "\ue39b"],
         "on-click": "",
-        "tooltip": false,
+        "tooltip": false
     },
     
     "network": {
-        "format-wifi": "<span color='#89b4fa'>\udb81\udda9</span> {essid} {signalStrength}%",
-        "format-ethernet": "<span color='#89b4fa'>\udb80\ude00</span> wired",
-        "format-disconnected": "<span color='#f38ba8'>\udb85\ude16</span> disconnected",
+        "format-wifi": "\udb81\udda9 {essid} {signalStrength}%",
+        "format-ethernet": "\udb80\ude00",
+        "format-disconnected": "\udb85\ude16",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
     },
     
     "pulseaudio": {
-        "format": "<span color='#89b4fa'>{icon}</span> {volume}%",
-        "format-bluetooth": "<span color='#89b4fa'>\udb80\udecb \udb80\udcaf</span> {volume}%",
-        "format-bluetooth-muted": "<span color='#89b4fa'>\udb81\udfce \udb80\udcaf</span>",
-        "format-muted": "<span color='#f38ba8'>\udb81\udf5f</span>",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "\udb80\udecb \udb80\udcaf {volume}%",
+        "format-bluetooth-muted": "\udb81\udfce \udb80\udcaf",
+        "format-muted": "\udb81\udf5f",
         "format-icons": {
             "headphone": "\udb80\udecb",
             "default": ["\udb81\udd7f", "\udb81\udd80", "\udb81\udd7e"]
@@ -66,8 +74,8 @@
     },
     
     "bluetooth": {
-        "format": "<span color='#89b4fa'>\udb80\udcaf</span> {status}",
-        "on-click": "kitty --class kitty-util bluetoothctl",
+        "format": "\udb80\udcaf  {status}",
+        "on-click": "kitty --class kitty-util bluetoothctl"
     },
     
     "battery": {
@@ -75,38 +83,58 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "<span color='#89b4fa'>{icon}</span> {capacity}%",
+        "format": "{icon} {capacity}%",
         "format-warning": "<span color='#fab387'>{icon}</span> {capacity}%",
         "format-critical": "<span color='#f38ba8'>{icon}</span> {capacity}%",
         "format-charging": "<span color='#a6e3a1'>\udb80\udc84</span> {capacity}%",
         "format-plugged": "<span color='#a6e3a1'>\udb81\udea5</span>  {capacity}%",
         "format-alt": "<span color='#89b4fa'>{icon}</span> {time}",
         "format-full": "<span color='#a6e3a1'>\udb81\udea5</span>  {capacity}%",
-        "format-icons": ["\udb80\udc7a ", "\udb80\udc7b ", "\udb80\udc7c ", "\udb80\udc7d ", "\udb80\udc7e ", "\udb80\udc7f", "\udb80\udc80", "\udb80\udc81", "\udb80\udc82"],
-    },
-    "custom/playerctlicon": {
-        "format": "{icon}",
-        "return-type": "json",
-        "max-length": 64,
-        "exec": "playerctl -p spotify -a metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "on-click-middle": "playerctl -p spotify play-pause",
-        "on-click": "playerctl -p spotify previous",
-        "on-click-right": "playerctl -p spotify next",
-        "format-icons": {
-          "Playing": "<span foreground='#a6e3a1'></span>",
-          "Paused": "<span foreground='#45475a'></span>"
-        },
-        "tooltip": false
+        "format-icons": ["\udb80\udc7a ", "\udb80\udc7b ", "\udb80\udc7c ", "\udb80\udc7d ", "\udb80\udc7e ", "\udb80\udc7f", "\udb80\udc80", "\udb80\udc81", "\udb80\udc82"]
     },
     "custom/playerctl": {
-        "format": "{}",
+        "format": "{icon}   ::  <span>{}</span>",
         "return-type": "json",
         "max-length": 64,
-        "exec": "playerctl -p spotify -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\"}' -F",
-        "on-click-middle": "playerctl -p spotify play-pause",
-        "on-click": "playerctl -p spotify previous",
-        "on-click-right": "playerctl -p spotify next",
-        "tooltip": false
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click-middle": "playerctl play-pause",
+        "on-click": "playerctl previous",
+        "on-click-right": "playerctl next",
+        "format-icons": {
+          "Playing": "<span foreground='#a6e3a1'>󰝚</span>",
+          "Paused": "<span foreground='#313244'>󰝛</span>"
+        }
+    },
+
+    "custom/notifications": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󰂚<span foreground='#DB4740'><sup></sup></span>",
+            "none": "󰂚",
+            "dnd-notification": "󰂛<span foreground='#DB4740'><sup></sup></span>",
+            "dnd-none": "󰂛",
+            "inhibited-notification": "󰂚<span foreground='#DB4740'><sup></sup></span>",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "󰂛<span foreground='#DB4740'><sup></sup></span>",
+            "dnd-inhibited-none": "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "group/group-applets": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/hyprpicker",
+            "bluetooth",
+            "network",
+            "pulseaudio",
+            "custom/notifications"
+        ]
     }
 }
-

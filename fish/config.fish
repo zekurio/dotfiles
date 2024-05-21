@@ -8,3 +8,6 @@ end
 # set starship env var and load starship
 set -x STARSHIP_CONFIG ~/.config/starship/starship.toml
 starship init fish | source
+
+# aliases
+alias ssh "kitten ssh"
