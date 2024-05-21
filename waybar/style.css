@@ -36,21 +36,21 @@ window#waybar {
 }
 
 #workspaces button.empty {
-    color: @overlay2;
+    color: @surface2;
 }
 
 #workspaces button.active {
-  color: @lavender;
+  color: @blue;
   text-shadow:
-    0.25px 0.25px 0 @lavender,
-    -0.25px 0.25px 0 @lavender,
-    -0.25px -0.25px 0 @lavender,
-    0.25px -0.25px 0 @lavender;
+    0.25px 0.25px 0 @blue,
+    -0.25px 0.25px 0 @blue,
+    -0.25px -0.25px 0 @blue,
+    0.25px -0.25px 0 @blue;
 }
 
 #workspaces button:hover {
 	background-color: transparent;
-	color: @lavender;
+	color: @blue;
 }
 
 #tray {
@@ -63,7 +63,7 @@ window#waybar {
 }
 
 #clock {
-	color: @lavender;
+	color: @text;
   background: @base;
   border-radius: 5px;
 	padding: 5px 14px;
@@ -109,21 +109,13 @@ window#waybar {
   border: 1px solid @mantle;
 }
 
-#custom-hyprpicker, #bluetooth, #network, #pulseaudio, #backlight, #battery, #custom-notifications {
-	color: @lavender;
-	font-family: 'Symbols Nerd Font';
+#custom-hyprpicker, #custom-hyprshade, #bluetooth, #network, #pulseaudio, #backlight, #battery, #custom-notifications {
+	color: @text;
+	font-family: 'JetBrainsMono Nerd Font';
 	font-size: 10pt;
 	margin: 0;
 	padding: 0 10px;
 }
-
-/* #custom-hyprpicker { */
-/*   background: linear-gradient(to left, transparent, @mantle); */
-/*   border-radius: 100px 0 0 100px; */
-/*   border-top: solid 3px transparent; */
-/*   border-bottom: solid 3px transparent; */
-/*   padding-left: 15px; */
-/* } */
 
 #bluetooth.connected {
 	color: @green;

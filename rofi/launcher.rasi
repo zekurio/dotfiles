@@ -55,7 +55,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      2px solid;
-    border-radius:               10px;
+    border-radius:               5px;
     border-color:                @border-colour;
     cursor:                      "default";
     /* Backgroud Colors */
@@ -145,8 +145,8 @@ case-indicator {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     3;
-    lines:                       10;
+    columns:                     4;
+    lines:                       12;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   true;
@@ -168,7 +168,7 @@ listview {
 scrollbar {
     handle-width:                10px ;
     handle-color:                @handle-colour;
-    border-radius:               10px;
+    border-radius:               5px;
     background-color:            @alternate-background;
 }
 
@@ -276,7 +276,7 @@ message {
 textbox {
     padding:                     5px 10px;
     border:                      0px solid;
-    border-radius:               20px;
+    border-radius:               5px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
@@ -290,7 +290,7 @@ textbox {
 error-message {
     padding:                     10px;
     border:                      2px solid;
-    border-radius:               20px;
+    border-radius:               5px;
     border-color:                @border-colour;
     background-color:            @background-colour;
     text-color:                  @foreground-colour;
