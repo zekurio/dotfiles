@@ -9,4 +9,4 @@ current_profile=$(asusctl profile -p | grep -oE '[^ ]+$')
 asusctl profile -n
 next_profile=$(asusctl profile -p | grep -oE '[^ ]+$')
 
-dunstify -r 2593 -u normal "Switched from $current_profile to $next_profile"
+notify-send -r 2593 -u normal "Switched from $current_profile to $next_profile"

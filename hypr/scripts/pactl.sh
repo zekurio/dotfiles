@@ -12,9 +12,9 @@ mute_in() {
 
     # display notification
     if [ "$mute_status" = "yes" ]; then
-        dunstify -r 2593 -u normal "Mute" "Microphone muted"
+        notify-send -r 2593 -u normal "Mute" "Microphone muted"
     else
-        dunstify -r 2593 -u normal "Unmute" "Microphone unmuted"
+        notify-send -r 2593 -u normal "Unmute" "Microphone unmuted"
     fi
 }
 
@@ -31,9 +31,9 @@ mute_out() {
 
     # display notification
     if [ "$mute_status" = "yes" ]; then
-        dunstify -r 2593 -u normal "Mute" "Speakers muted"
+        notify-send -r 2593 -u normal "Mute" "Speakers muted"
     else
-        dunstify -r 2593 -u normal "Unmute" "Speakers unmuted"
+        notify-send -r 2593 -u normal "Unmute" "Speakers unmuted"
     fi
 
 }
