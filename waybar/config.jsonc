@@ -11,8 +11,8 @@
     "modules-right": ["tray", "group/group-applets", "clock"],
     "custom/launcher": {
         "format": "<span foreground='#89b4fa'>󰣇</span>",
-        "on-click": "bash ~/.config/rofi/launcher/launcher.sh",
-        "on-click-right": "bash ~/.config/rofi/powermenu/powermenu.sh"
+        "on-click": "rofi -show drun -theme ~/.config/rofi/launcher.rasi",
+        "on-click-right": "bash ~/.config/rofi/scripts/powermenu.sh"
     },
     "hyprland/workspaces": {
         "disable-scroll": false,
