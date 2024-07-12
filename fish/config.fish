@@ -7,7 +7,7 @@ end
 
 if status is-login
     if test -z "$DISPLAY" -a -z "$WAYLAND_DISPLAY"
-        exec Hyprland
+        #exec Hyprland
     end
 end
 
@@ -17,3 +17,17 @@ starship init fish | source
 
 # aliases
 alias ssh "kitten ssh"
+
+# set up go
+set -gx GOPATH $HOME/go; set -gx GOROOT $HOME/.go; set -gx PATH $GOPATH/bin $PATH; # g-install: do NOT edit, see https://github.com/stefanmaric/g
+
+# set up pyenv
+set -Ux PYENV_ROOT $HOME/.pyenv
+fish_add_path $PYENV_ROOT/bin
+
+# set up bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# set up rustup
+set -gx PATH "$HOME/.cargo/bin" $PATH;
