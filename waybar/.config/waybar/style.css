@@ -1,0 +1,98 @@
+@import "/home/michael/.cache/wal/colors-waybar.css";
+
+* {
+  font-family: "Symbols Nerd Font Mono", "0xProto Nerd Font Mono", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background-color: @background;
+  border-radius: 15px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces {
+  border-radius: 15px;
+  margin: 5px;
+  padding: 0 10px;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: @color1;
+  background-color: transparent;
+  box-shadow: inset 0 -3px transparent;
+  border: none;
+  border-radius: 0px;
+}
+
+#workspaces button:hover {
+  background: alpha(@color15, 0.4);
+}
+
+#workspaces button.active {
+  color: @color6;
+}
+
+#workspaces button.urgent {
+  background-color: @color1;
+}
+
+#window {
+  margin: 0 4px;
+  padding: 0 10px;
+  color: @color6;
+}
+
+#clock,
+#bluetooth,
+#network,
+#tray {
+  padding: 0 10px;
+  color: @color6;
+  background-color: transparent;
+}
+
+#clock {
+  background-color: @color1;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 0 10px;
+  color: @color0;
+}
+
+#network {
+  color: @color6;
+}
+
+#network.disconnected {
+  color: @color1;
+}
+
+#bluetooth {
+  color: @color6;
+}
+
+#bluetooth.disconnected {
+  color: @color1;
+}
+
+#tray {
+  margin-right: 4px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @color1;
+}
