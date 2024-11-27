@@ -1,15 +1,15 @@
 {
   "layer": "bottom",
   "position": "top",
-  "height": 30,
-  "margin-top": 15,
-  "margin-left": 15,
-  "margin-right": 15,
+  "height": 34,
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
   "spacing": 4,
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "bluetooth", "clock", "tray"],
+  "modules-right": ["network", "bluetooth", "pulseaudio", "clock", "tray"],
 
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -56,6 +56,15 @@
     "tooltip-format": "{device_alias}",
     "tooltip-format-connected": " {device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
   },
 
   "tray": {

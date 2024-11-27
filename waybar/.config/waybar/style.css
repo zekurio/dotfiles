@@ -9,7 +9,7 @@
 
 window#waybar {
   background-color: @background;
-  border-radius: 15px;
+  border-radius: 0px;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -54,6 +54,7 @@ window#waybar.hidden {
 #clock,
 #bluetooth,
 #network,
+#pulseaudio,
 #tray {
   padding: 0 10px;
   color: @color6;
@@ -95,4 +96,8 @@ window#waybar.hidden {
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
   background-color: @color1;
+}
+
+#pulseaudio.muted {
+  color: @color1;
 }
