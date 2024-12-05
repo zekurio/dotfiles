@@ -28,7 +28,7 @@
 
   "hyprland/window": {
     "format": "{}",
-    "max-length": 50
+    "max-length": 128
   },
 
   "clock": {
