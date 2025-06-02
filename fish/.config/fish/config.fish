@@ -1,12 +1,14 @@
-# Source pywal colors
-source ~/.cache/wal/colors.fish
-
 # disable greeting
 set fish_greeting
 
 # starship
 starship init fish | source
 
+set -x SSH_AUTH_SOCK /home/$USER/.bitwarden-ssh-agent.sock
+
 if status is-interactive
-    # Commands to run in interactive sessions can go here
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
