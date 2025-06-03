@@ -1,8 +1,10 @@
 # disable greeting
 set fish_greeting
 
-# starship
-starship init fish | source
+# only load starship if not in pure TTY
+if not string match -q '/dev/tty*' (tty)
+    starship init fish | source
+end
 
 set -x SSH_AUTH_SOCK /home/$USER/.bitwarden-ssh-agent.sock
 
