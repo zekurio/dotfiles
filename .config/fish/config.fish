@@ -11,6 +11,8 @@ set -x SSH_AUTH_SOCK $HOME/.1password/agent.sock
 if status is-interactive
 end
 
+# Set the default editor to nvim
+set -Ux EDITOR nvim
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH

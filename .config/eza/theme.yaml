@@ -1,4 +1,4 @@
-colourful: true
+colourful: false
 
 filekinds:
   normal: {foreground: "#BAC2DE"}
