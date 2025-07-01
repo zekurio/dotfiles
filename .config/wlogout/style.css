@@ -1,0 +1,55 @@
+* {
+	background-image: none;
+	box-shadow: none;
+	font-family: "0xProto Nerd Font";
+	font-size: 28px;
+}
+
+window {
+	background-color: rgba(30, 30, 46, 0.10);
+}
+
+button {
+	border-radius: 25px;
+	margin: 50px;
+	padding: 15px;
+	border-color: #f38ba8;
+	text-decoration-color: #cdd6f4;
+	color: #cdd6f4;
+	background-color: rgba(30, 30, 46, 0.90);
+	border-style: solid;
+	border-width: 2px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 10%;
+}
+
+button:active, button:hover {
+	/* 20% Overlay 2, 80% mantle */
+	background-color: rgb(48, 50, 66);
+	outline-style: none;
+}
+
+#lock {
+    background-image: url("/home/michael/.config/wlogout/icons/lock.svg");
+}
+
+#logout {
+    background-image: url("/home/michael/.config/wlogout/icons/logout.svg");
+}
+
+#suspend {
+    background-image: url("/home/michael/.config/wlogout/icons/suspend.svg");
+}
+
+#hibernate {
+    background-image: url("/home/michael/.config/wlogout/icons/hibernate.svg");
+}
+
+#shutdown {
+    background-image: url("/home/michael/.config/wlogout/icons/shutdown.svg");
+}
+
+#reboot {
+    background-image: url("/home/michael/.config/wlogout/icons/reboot.svg");
+}

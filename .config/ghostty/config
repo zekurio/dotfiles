@@ -1,0 +1,7 @@
+font-family = "0xProto Nerd Font"
+
+theme = catppuccin-mocha
+
+shell-integration = fish
+
+window-padding-x = 20
