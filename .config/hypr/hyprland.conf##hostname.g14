@@ -22,7 +22,7 @@ $accentAlpha = $redAlpha
 ################
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
-monitor=DP-2,2560x1440@165,auto,1
+monitor=eDP-1,1920x1080@120,auto,1
 
 #####################
 ### LOOK AND FEEL ###
@@ -150,7 +150,7 @@ input {
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
     
-    accel_profile = flat
+    accel_profile = adaptive
 
     touchpad {
     	scroll_factor = 0.2
