@@ -128,3 +128,4 @@ audio/m3u=mpv.desktop
 audio/vnd.wave=mpv.desktop
 video/vnd.avi=mpv.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+x-scheme-handler/discord=vesktop.desktop
