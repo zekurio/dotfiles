@@ -1,22 +1,22 @@
-@define-color cc-bg rgba(30, 30, 46, 0.8);
+@define-color cc-bg #1e1e2e;
 @define-color noti-border-color rgba(205, 214, 244, 0.15);
 @define-color noti-bg #1e1e2e;
 @define-color noti-bg-darker #11111b;
 @define-color noti-bg-hover #181825;
-@define-color noti-bg-focus rgba(17, 17, 27, 0.6);
+@define-color noti-bg-focus #11111b;
 @define-color noti-close-bg rgba(243, 139, 168, 0.1);
 @define-color noti-close-bg-hover rgba(243, 139, 168, 0.15);
 @define-color text-color #cdd6f4;
 
 * {
     all: unset;
-    font-size: 14px;
+    font-size: 12px;
     font-family: "0xProto Nerd Font";
     transition: 200ms;
 }
 
 .widget-mpris {
-    background: linear-gradient(to right, #313244, rgba(243, 139, 168, 0.3));
+    background: linear-gradient(to right, #313244, rgba(137, 180, 250, 0.3));
 
     padding: 10px;
     border-radius: 10px;
@@ -56,13 +56,13 @@
 
 .floating-notifications.background .notification-row .notification-background {
     box-shadow:
-        0 0 8px 0 rgba(0, 0, 0, 0.8),
+        0 0 6px 0 rgba(0, 0, 0, 0.6),
         inset 0 0 0 1px #313244;
-    border-radius: 10px;
-    margin: 18px;
+    border-radius: 8px;
+    margin: 12px;
     background-color: #1e1e2e;
     color: #cdd6f4;
-    border: 2px solid rgba(243, 139, 168, 0.5);
+    border: 1px solid rgba(137, 180, 250, 0.3);
     padding: 0;
 }
 
@@ -70,8 +70,8 @@
     .notification-row
     .notification-background
     .notification {
-    padding: 7px;
-    border-radius: 10px;
+    padding: 5px;
+    border-radius: 8px;
 }
 
 .floating-notifications.background
@@ -86,7 +86,7 @@
     .notification-background
     .notification
     .notification-content {
-    margin: 7px;
+    margin: 5px;
 }
 
 .floating-notifications.background
@@ -122,7 +122,7 @@
     .notification
     > *:last-child
     > * {
-    min-height: 3.4em;
+    min-height: 2.5em;
 }
 
 .floating-notifications.background
@@ -198,7 +198,7 @@
     margin: 18px;
     background-color: #1e1e2e;
     color: #cdd6f4;
-    border: 2px solid rgba(243, 139, 168, 0.5);
+    border: 2px solid rgba(137, 180, 250, 0.5);
     padding: 14px;
 }
 
