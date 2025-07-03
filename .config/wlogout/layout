@@ -1,8 +1,8 @@
 {
-    "label" : "shutdown",
+    "label" : "poweroff",
     "action" : "systemctl poweroff",
-    "text" : "Shutdown",
-    "keybind" : "s"
+    "text" : "Poweroff",
+    "keybind" : "p"
 }
 {
     "label" : "reboot",
@@ -18,7 +18,7 @@
 }
 {
     "label" : "hibernate",
-    "action" : "hyprlock -f && systemctl hibernate",
+    "action" : "systemctl hibernate",
     "text" : "Hibernate",
     "keybind" : "h"
 }
