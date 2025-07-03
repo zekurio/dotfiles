@@ -8,6 +8,8 @@ end
 
 set -x SSH_AUTH_SOCK $HOME/.1password/agent.sock
 
+alias dots 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
 if status is-interactive
 end
 
