@@ -11,8 +11,6 @@
   "modules-right": [
     //"cpu",
     //"memory",
-    //"battery",
-    //"backlight",
     "bluetooth",
     "network",
     "pulseaudio",
