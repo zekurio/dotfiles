@@ -153,6 +153,6 @@
     "format-connected": " {device_alias}",
     "tooltip-format": "Bluetooth: {status}",
     "tooltip-format-connected": "Bluetooth: {device_alias}\nPower: {power}\nConnected: {connected}",
-    "on-click": "blueman-manager"
+    "on-click": "ghostty --class=com.mitchellh.ghostty.bluetoothctl -e bluetoothctl",
   }
 }
