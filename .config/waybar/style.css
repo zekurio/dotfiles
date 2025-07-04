@@ -1,98 +1,124 @@
+@import "mocha.css";
+
 * {
-  border: none;
-  border-radius: 0;
   font-family: "0xProto Nerd Font", monospace;
-  font-weight: bold;
   font-size: 14px;
   min-height: 0;
 }
 
-window#waybar {
-  background: #1e1e2e;
-  color: #cdd6f4;
-  border-radius: 0;
-  margin: 5px;
+#custom-launcher {
+  color: @blue;
+  border-radius: 1rem;
+  background-color: @base;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+  margin-left: 0.5rem;
 }
 
-#workspaces button {
-  padding: 8px;
-  color: #727379;
-  margin-right: 0px;
-  min-width: 16px;
-  min-height: 16px;
-}
-
-#workspaces button.active {
-  color: #cdd6f4;
-}
-
-#workspaces button.focused {
-  color: #cdd6f4;
-  background: #eba0ac;
-  border-radius: 50px;
-}
-
-#workspaces button.urgent {
-  color: #11111b;
-  background: #a6e3a1;
-  border-radius: 50px;
-}
-
-#workspaces button:hover {
-  background: #cdd6f4;
-  color: #11111b;
-  border-radius: 50%;
-}
-
-#window,
-#clock,
-#battery,
-#pulseaudio,
-#pulseaudio.microphone,
-#network,
-#cpu,
-#memory,
-#workspaces,
-#tray,
-#backlight,
-#bluetooth {
+#waybar {
   background: transparent;
-  padding: 4px 12px;
-  margin: 0px;
-  color: #cdd6f4;
-  border-radius: 0px;
-}
-
-/* Remove individual module styling - now part of continuous bar */
-#cpu,
-#memory,
-#battery,
-#backlight,
-#bluetooth,
-#network,
-#pulseaudio,
-#pulseaudio.microphone,
-#tray {
-  margin: 0px;
+  color: @text;
 }
 
 #workspaces {
-  background: transparent;
-  border-radius: 0px;
-  margin: 0px;
-  padding: 4px;
+  border-radius: 1rem;
+  margin: 5px 0;
+  background-color: @base;
+  margin-left: 0.5rem;
 }
 
-#window {
-  background: transparent;
-  border-radius: 0px;
-  margin: 0px;
-  padding: 4px 12px;
+#workspaces button {
+  color: @blue;
+  border-radius: 1rem;
+  padding: 0.4rem 0.6rem;
+}
+
+#workspaces button.active {
+  color: @blue;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @blue;
+  border-radius: 1rem;
+}
+
+/* Remove general styling - we'll style each element individually */
+
+/* Grouped wireplumber and clock */
+#wireplumber {
+  color: @blue;
+  border-radius: 1rem 0px 0px 1rem;
+  background-color: @base;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+  margin-left: 0.5rem;
 }
 
 #clock {
-  background: transparent;
+  color: @blue;
+  border-radius: 0px 1rem 1rem 0px;
+  background-color: @base;
+  padding: 0.5rem 1rem;
+  margin: 5px 0.25rem 5px 0;
+}
+
+/* Grouped network and bluetooth */
+#network {
+  color: @blue;
+  border-radius: 1rem 0px 0px 1rem;
+  background-color: @base;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+  margin-left: 0.25rem;
+}
+
+#bluetooth {
+  color: @blue;
+  border-radius: 0px 1rem 1rem 0px;
+  background-color: @base;
+  padding: 0.5rem 1rem;
+  margin: 5px 0.25rem 5px 0;
+}
+
+#custom-music {
+  color: @blue;
+  border-radius: 1rem;
+  background-color: @base;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+/* Tray - positioned between groups with consistent spacing */
+#tray {
+  border-radius: 1rem;
+  background-color: @base;
+  padding: 0.5rem 1rem;
+  margin: 5px 0.25rem;
+}
+
+/* Grouped notification, lock and power */
+#custom-notification {
+  border-radius: 1rem 0px 0px 1rem;
+  background-color: @base;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+  margin-left: 0.25rem;
+  color: @blue;
+}
+
+#custom-lock {
   border-radius: 0px;
-  margin: 0px;
-  padding: 4px 12px;
+  background-color: @base;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+  color: @blue;
+}
+
+#custom-power {
+  border-radius: 0px 1rem 1rem 0px;
+  background-color: @base;
+  padding: 0.5rem 1rem;
+  margin: 5px 0.5rem 5px 0;
+  color: @red;
 }

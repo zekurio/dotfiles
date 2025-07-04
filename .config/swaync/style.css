@@ -15,27 +15,6 @@
     transition: 200ms;
 }
 
-.widget-mpris {
-    background: linear-gradient(to right, #313244, rgba(137, 180, 250, 0.3));
-
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.widget-mpris-player {
-    padding: 8px;
-    margin: 8px;
-}
-
-.widget-mpris-title {
-    font-weight: 700;
-    font-size: 1.25rem;
-}
-
-.widget-mpris-subtitle {
-    font-size: 1.1rem;
-}
-
 .widget-buttons-grid {
     font-size: x-large;
     padding: 8px;
