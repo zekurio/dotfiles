@@ -22,7 +22,11 @@ $accentAlpha = $blueAlpha
 ################
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
+{{ if eq .chezmoi.hostname "choncc-arch" }}
 monitor=DP-2,2560x1440@165,auto,auto,vrr,2,bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 1.2
+{{ else if eq .chezmoi.hostname "g14" }}
+monitor=eDP-1,1920x1080@120,auto,1.2
+{{ end }}
 
 #####################
 ### LOOK AND FEEL ###
@@ -149,18 +153,28 @@ misc {
 
 # https://wiki.hyprland.org/Configuring/Variables/#input
 input {
+{{ if eq .chezmoi.hostname "choncc-arch" }}
     kb_layout = eu
     kb_variant =
     kb_model =
     kb_options =
     kb_rules =
 
+    accel_profile = flat
+{{ else if eq .chezmoi.hostname "g14" }}
+    kb_layout = de
+    kb_variant =
+    kb_model =
+    kb_options =
+    kb_rules =
+
+    accel_profile = adaptive
+{{ end }}
+
     follow_mouse = 1
     mouse_refocus = false
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-    
-    accel_profile = flat
 
     touchpad {
     	scroll_factor = 0.2

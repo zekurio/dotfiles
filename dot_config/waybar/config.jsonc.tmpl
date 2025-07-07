@@ -7,7 +7,11 @@
     "height": 46,
     "modules-left": ["custom/launcher", "hyprland/workspaces"],
     "modules-center": ["custom/music"],
+{{ if eq .chezmoi.hostname "choncc-arch" }}
     "modules-right": ["clock", "wireplumber", "network", "bluetooth", "custom/notifications", "custom/lock", "custom/power", "tray"],
+{{ else if eq .chezmoi.hostname "g14" }}
+    "modules-right": ["clock", "wireplumber", "network", "bluetooth", "battery", "backlight", "custom/notifications", "custom/lock", "custom/power", "tray"],
+{{ end }}
     "battery": {
         "format": "<span color='#a6e3a1'></span> {capacity}%",
         "format-charging": "<span color='#f9e2af'></span> {capacity}%",
@@ -49,7 +53,7 @@
         "escape": true,
         "interval": 2,
         "tooltip": false,
-        "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
+        "exec": "~/.config/waybar/scripts/playerctl.sh",
         "on-click": "playerctl play-pause",
         "max-length": 64
     },
