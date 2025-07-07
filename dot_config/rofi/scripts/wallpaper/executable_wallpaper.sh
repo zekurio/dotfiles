@@ -26,14 +26,10 @@ fi
 
 WALLPAPER="$wallpapers_dir/$choice"
 
-if pgrep -x "hyprpaper" >/dev/null; then
-  hyprctl hyprpaper reload ,"$WALLPAPER" && notify-send "Wallpaper Changed" -i "$WALLPAPER" --app-name=Wallpaper
-elif pgrep -x "swww" >/dev/null; then
-  swww img "$WALLPAPER" \
-    --transition-bezier 0.5,1.19,.8,.4 \
-    --transition-type wipe \
-    --transition-duration 2 \
-    --transition-fps 75 && notify-send "Wallpaper Changed" -i "$WALLPAPER" --app-name=Wallpaper
-fi
+# assert that we are running hyprpaper
+hyprctl hyprpaper reload ,"$WALLPAPER" && notify-send "Wallpaper Changed" -i "$WALLPAPER" --app-name=Wallpaper
+
+# symbolic link in ~/.current_wallpaper
+ln -sf "$WALLPAPER" "$HOME/.current_wallpaper" || notify-send "Failed to create symbolic link" --app-name=Wallpaper
 
 exit 1
