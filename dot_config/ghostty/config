@@ -1,0 +1,24 @@
+font-family = "0xProto Nerd Font"
+
+theme = catppuccin-mocha
+
+shell-integration = fish
+
+gtk-single-instance = true
+window-theme = system
+gtk-titlebar = false
+gtk-wide-tabs = false
+gtk-adwaita = false
+
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+
+confirm-close-surface = false
+window-padding-x = 12
+window-padding-y = 11
+window-padding-balance = true
+
+auto-update = check
+auto-update-channel = stable
+copy-on-select = clipboard

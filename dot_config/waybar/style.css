@@ -1,0 +1,135 @@
+@import "mocha.css";
+
+* {
+  font-family: "0xProto Nerd Font", monospace;
+  font-size: 14px;
+  min-height: 0;
+}
+
+#custom-launcher {
+  color: @text;
+  border-radius: 1rem;
+  background-color: @crust;
+  padding: 0.5rem 1.25rem 0.5rem 1rem;
+  margin: 5px 0;
+  margin-left: 0.5rem;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+}
+
+#workspaces {
+  color: @blue;
+  border-radius: 1rem;
+  margin: 5px 0;
+  background-color: @crust;
+  margin-left: 0.5rem;
+}
+
+#workspaces button {
+  color: @blue;
+  border-radius: 1rem;
+  padding: 0.4rem 0.6rem;
+}
+
+#workspaces button.active {
+  color: @blue;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @blue;
+  border-radius: 1rem;
+}
+
+#custom-music {
+  color: @text;
+  border-radius: 1rem;
+  background-color: @crust;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+#clock {
+  border-radius: 1rem;
+  background-color: @crust;
+  padding: 0.5rem 1rem;
+  margin: 5px 0.5rem 5px 0;
+}
+
+/* Grouped audio, network and bluetooth */
+#wireplumber {
+  color: @text;
+  border-radius: 1rem 0px 0px 1rem;
+  background-color: @crust;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+#network {
+  color: @text;
+  border-radius: 0;
+  background-color: @crust;
+  padding: 0.5rem;
+  margin: 5px 0;
+}
+
+#bluetooth {
+  color: @text;
+  border-radius: 0px 1rem 1rem 0px;
+  background-color: @crust;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  margin: 5px 0.5rem 5px 0;
+}
+
+/* Grouped battery and backlight */
+#battery {
+  color: @text;
+  border-radius: 1rem 0px 0px 1rem;
+  background-color: @crust;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+#backlight {
+  color: @text;
+  border-radius: 0px 1rem 1rem 0px;
+  background-color: @crust;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  margin: 5px 0.25rem 5px 0; /* Reduced right margin */
+}
+
+/* Tray - positioned between groups with consistent spacing */
+#tray {
+  border-radius: 1rem;
+  background-color: @crust;
+  padding: 0.5rem 1rem;
+  margin: 5px 0.5rem 5px 0.25rem; /* Reduced left margin */
+}
+
+/* Custom notifications, lock, and power buttons grouped */
+#custom-notifications {
+  color: @text;
+  border-radius: 1rem 0px 0px 1rem;
+  background-color: @crust;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+#custom-lock {
+  border-radius: 0;
+  background-color: @crust;
+  padding: 0.5rem;
+  margin: 5px 0;
+  color: @yellow;
+}
+
+#custom-power {
+  border-radius: 0px 1rem 1rem 0px;
+  background-color: @crust;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  margin: 5px 0.25rem 5px 0;
+  color: @red;
+}

@@ -1,0 +1,132 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "margin-top": 1,
+    "height": 46,
+    "modules-left": ["custom/launcher", "hyprland/workspaces"],
+    "modules-center": ["custom/music"],
+    "modules-right": ["clock", "wireplumber", "network", "bluetooth", "custom/notifications", "custom/lock", "custom/power", "tray"],
+    "battery": {
+        "format": "<span color='#a6e3a1'></span> {capacity}%",
+        "format-charging": "<span color='#f9e2af'></span> {capacity}%",
+        "format-plugged": "<span color='#94e2d5'></span> {capacity}%",
+        "format-alt": "{time}",
+        "interval": 30,
+        "tooltip-format": "{capacity}%\n{time} remaining",
+        "format-icons": [
+            "<span color='#f38ba8'></span>",
+            "<span color='#fab387'></span>",
+            "<span color='#f9e2af'></span>",
+            "<span color='#a6e3a1'></span>",
+            "<span color='#a6e3a1'></span>"
+        ]
+    },
+    "backlight": {
+        "format": "<span color='#89b4fa'>󰖨</span> {percent}%",
+        "interval": 5,
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip": false
+    },
+    "custom/launcher": {
+        "format": "<span color='#89b4fa'>󰣇</span>",
+        "on-click": "tofi-drun -c ~/.config/tofi/configA --drun-launch=true"
+    },
+    "hyprland/workspaces": {
+        "show-empty": false,
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate"
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "custom/music": {
+        "format": "<span color='#89b4fa'>󰎆</span>  {}",
+        "escape": true,
+        "interval": 2,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 64
+    },
+    "clock": {
+      "timezone": "Europe/Vienna",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format": "<span color='#89b4fa'>󰥔</span> {:%H:%M}", // time is default
+      "format-alt": "<span color='#89b4fa'>󰃭</span> {:%A, %d %B %Y}", // date on click
+      "interval": 30,
+      "on-click": "mode"
+    },
+    "wireplumber": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "<span color='#89b4fa'>{icon}</span> {volume}%",
+        "format-muted": "<span color='#89b4fa'>󰝟</span>",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pwvucontrol"
+    },
+    "network": {
+        "format-wifi": "{icon} {essid}",
+        "format-icons": [
+            "<span color='#f38ba8'>󰤯</span>",  // 0 bars (worst)
+            "<span color='#fab387'>󰤟</span>",  // 1 bar
+            "<span color='#f9e2af'>󰤢</span>",  // 2 bars
+            "<span color='#a6e3a1'>󰤥</span>",  // 3 bars
+            "<span color='#89b4fa'>󰤨</span>"   // 4 bars (best)
+        ],
+        "format-ethernet": "<span color='#89b4fa'>󰈀</span> {ifname}",
+        "format-linked": "<span color='#89b4fa'>󰈁</span> linked",
+        "format-disconnected": "<span color='#f38ba8'></span> Disconnected",
+        "tooltip-format": "{essid}\n{ifname} {ipaddr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": "{ifname} {ipaddr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nm-connection-editor",
+        "interval": 10
+    },
+    "bluetooth": {
+        "format": "<span color='#89b4fa'>...</span>",
+        "format-disabled": "<span color='#89b4fa'>disabled</span>",
+        "format-off": "<span color='#89b4fa'>󰂲</span> off",
+        "format-on": "<span color='#89b4fa'>󰂯</span> on",
+        "format-connected": "<span color='#89b4fa'>󰂱</span> {num_connections}",
+        "tooltip-format": "{controller_alias} {controller_address}",
+        "tooltip-format-connected": "{controller_alias} {controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias} {device_address}",
+        "on-click": "blueman-manager"
+    },
+    "custom/notifications": {
+        "tooltip": false,
+        "format": "{icon} {text}",
+        "format-icons": {
+            "notification": "<span color='#89b4fa'>󰂚</span><span foreground='red'><sup></sup></span>",
+            "none": "<span color='#89b4fa'>󰂚</span>",
+            "dnd-notification": "<span color='#89b4fa'>󰂛</span><span foreground='red'><sup></sup></span>",
+            "dnd-none": "<span color='#89b4fa'>󰂛</span>",
+            "inhibited-notification": "<span color='#89b4fa'>󰂚</span><span foreground='red'><sup></sup></span>",
+            "inhibited-none": "<span color='#89b4fa'>󰂚</span>",
+            "dnd-inhibited-notification": "<span color='#89b4fa'>󰂛</span><span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": "<span color='#89b4fa'>󰂛</span>"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+	},
+  	"custom/lock": {
+    	"tooltip": false,
+    	"on-click": "~/.config/hypr/scripts/hyprlock.sh",
+    	"format": "󰌾"
+    },
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/wlogout.sh",
+        "format": "󰐥"
+    }
+}
