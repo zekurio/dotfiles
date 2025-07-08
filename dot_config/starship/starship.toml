@@ -1,289 +1,91 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+# Sets user-defined palette
+palette = "catppuccin_mocha"
 
-# Inserts a blank line between shell prompts
-add_newline = false
+# Setups
+format="$directory$git_branch$character"
+right_format = """$git_status$cmd_duration"""
+add_newline = false 
 
-format = """
-$username\
-$hostname\
-$kubernetes\
-$directory\
-$git_branch\
-${custom.giturl}\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$docker_context\
-${custom.docker}\
-$all
-"""
-
-# Duration entry
-[cmd_duration]
-min_time = 10000
-format = "[󰔟 $duration](bold cyan)"
-
-# Git entry
-[git_metrics]
-added_style = "green"
-deleted_style = "red"
-format = '(\([+$added]($added_style)/[-$deleted]($deleted_style)\))'
-
-[git_status]
-ahead = '[ $count](bold green) '
-conflicted = '[󱡂 ](bold red) '
-untracked = '[ $count](bold purple) '
-staged = '[ $count](bold green) '
-stashed = '[ $count](cyan) '
-deleted = '[ $count](bold red) '
-modified = '[ $count](bold yellow) '
-behind = '[ $count](bold yellow) '
-renamed = '[󰬴 $count](bold blue) '
-up_to_date = '[](bold green) '
-diverged = '[ $ahead_count  $behind_count ](bold red) '
-format = '([$all_status$ahead_behind]($style))'
-
-[git_branch]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[fossil_branch]
-symbol = " "
-
-# Gcloud entry
-[gcloud]
-format = "on [$symbol$domain]($style) "
-symbol = " "
-style = "bold blue"
-
-# Directory entry
-[directory]
-read_only = " 󰌾 "
-# home_symbol = " "
-truncation_length = 3
-
-# [directory.substitutions]
-# "Documents" = "󰈙 "
-# "Downloads" = " "
-# "Music" = " "
-# "Pictures" = " "
-# "Repos" = " "
-# "Videos" = " "
-# "obsidianVault" = "󰏪 󰠮 "
-# ".config" = " "
-
-# Custom entries
-[custom.neovim]
-command = 'bob ls | rg Used | awk "{print \$2}"' # shows output of command
-detect_folders = ["lua"]
-style = "green"
-format = "[ $output ]($style)"
-shell = ["bash"]
-
-[custom.hypr]
-style = "blue"
-format = "[ ]($style)"
-detect_files = ["hyprland.conf"]
-
-[custom.docker]
-files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
-style = "bold blue"
-format = "[ ]($style)"
-
-
-[custom.giturl]
-# disabled = true
-description = "Display symbol for remote Git server"
-command = "check-git-remote"
-when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
-shell = ["bash", "--noprofile", "--norc"]
-format = "at $output  "
-
-# Nerd fonts preset
-[aws]
-symbol = "  "
-disabled = true
-
-[buf]
-symbol = " "
-
-[c]
-symbol = " "
+# Other languages configurations:
+c.disabled = true
+cmake.disabled = true
+haskell.disabled = true
+python.disabled = true
+ruby.disabled = true
+rust.disabled = true
+perl.disabled = true
+package.disabled = true
+lua.disabled = true
+nodejs.disabled = true
+java.disabled = true
+golang.disabled = true
 
 [conda]
-symbol = " "
+format = ' [$symbol$environment](dimmed green) '
 
-[crystal]
-symbol = " "
+# Prompt symbols 
+[character]
+success_symbol = "[](green bold)"
+error_symbol = "[](pink)"
+vicmd_symbol = "[](peach)"
 
-[dart]
-symbol = " "
+[directory]
+format = "[]($style)[ ](bg:base fg:pink)[$path](bg:base fg:lavender bold)[ ]($style)"
+style = "bg:none fg:base"
+truncation_length = 3
+truncate_to_repo=false
 
-[docker_context]
-symbol = " "
+[git_branch]
+format = "[]($style)[[ ](bg:base fg:green bold)$branch](bg:base fg:lavender)[ ]($style)"
+style = "bg:none fg:base"
 
-[elixir]
-symbol = " "
+[git_status]
+# $all status$ahead_behind
+format = "[]($style)[$all_status$ahead_behind](bg:base fg:yellow)[ ]($style)"
+style = "bg:none fg:base"
+conflicted = "="
+ahead =	"⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = ""
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "${count}"
 
-[elm]
-symbol = " "
+[cmd_duration]
+min_time = 1
+# duration & style 
+format = "[]($style)[[神](bg:base fg:flamingo bold)$duration](bg:base fg:text)[ ]($style)"
+disabled = false
+style = "bg:none fg:base"
 
-[fennel]
-symbol = " "
-
-[golang]
-symbol = " "
-
-[guix_shell]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = " "
-
-[hostname]
-ssh_symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[kotlin]
-symbol = " "
-
-[lua]
-symbol = " "
-
-[memory_usage]
-symbol = "󰍛 "
-
-[meson]
-symbol = "󰔷 "
-
-[nim]
-symbol = "󰆥 "
-
-[nix_shell]
-symbol = " "
-
-[nodejs]
-symbol = " "
-
-[ocaml]
-symbol = " "
-
-[os.symbols]
-Alpaquita = " "
-Alpine = " "
-AlmaLinux = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Kali = " "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-RockyLinux = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Void = " "
-Windows = "󰍲 "
-
-[package]
-symbol = "󰏗 "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-
-[pijul_channel]
-symbol = " "
-
-[python]
-symbol = " "
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = " "
-
-[scala]
-symbol = " "
-
-[swift]
-symbol = " "
-
-[zig]
-symbol = " "
-
-# Theme
-[palettes.catppuccin_macchiato]
-rosewater = "#f4dbd6"
-flamingo = "#f0c6c6"
-pink = "#f5bde6"
-mauve = "#c6a0f6"
-red = "#ed8796"
-maroon = "#ee99a0"
-peach = "#f5a97f"
-yellow = "#eed49f"
-green = "#a6da95"
-teal = "#8bd5ca"
-sky = "#91d7e3"
-sapphire = "#7dc4e4"
-blue = "#8aadf4"
-lavender = "#b7bdf8"
-text = "#cad3f5"
-subtext1 = "#b8c0e0"
-subtext0 = "#a5adcb"
-overlay2 = "#939ab7"
-overlay1 = "#8087a2"
-overlay0 = "#6e738d"
-surface2 = "#5b6078"
-surface1 = "#494d64"
-surface0 = "#363a4f"
-base = "#24273a"
-mantle = "#1e2030"
-crust = "#181926"
-
-palette = "catppuccin_macchiato"
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
