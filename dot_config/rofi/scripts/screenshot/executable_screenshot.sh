@@ -28,6 +28,6 @@ $output)
   grimblast --notify $freeze_flag copysave output "$save_dir/$filename"
   ;;
 $folder)
-  ~/.config/rofi/scripts/screenshot/screenshot_selection
+  ~/.config/rofi/scripts/screenshot/screenshot_selection.sh
   ;;
 esac

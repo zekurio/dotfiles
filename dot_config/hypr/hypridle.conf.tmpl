@@ -9,7 +9,7 @@ listener {
     on-timeout = brightnessctl -s set 0
     on-resume = brightnessctl -r
 }
-{{ else if eq .chezmoi.hostname "choncc-arch" }}
+{{ else if eq .chezmoi.hostname "choncc" }}
 # listener removed due to missing brightnessctl support
 {{ end }}
 
