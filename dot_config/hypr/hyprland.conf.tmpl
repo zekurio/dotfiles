@@ -23,7 +23,7 @@ $accentAlpha = $blueAlpha
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
 {{ if eq .chezmoi.hostname "choncc" }}
-monitor=DP-2,2560x1440@165,auto,auto,vrr,2,bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 1.2
+monitor=DP-2,2560x1440@165,auto,auto,vrr,2
 {{ else if eq .chezmoi.hostname "g14" }}
 monitor=eDP-1,1920x1080@120,auto,1.2
 {{ end }}

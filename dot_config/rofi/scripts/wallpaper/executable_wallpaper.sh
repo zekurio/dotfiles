@@ -26,10 +26,21 @@ fi
 
 WALLPAPER="$wallpapers_dir/$choice"
 
-# assert that we are running hyprpaper
-hyprctl hyprpaper reload ,"$WALLPAPER" && notify-send "Wallpaper Changed" -i "$WALLPAPER" --app-name=Wallpaper
+# If the wallpaper is a GIF, extract the first frame for notification
+if [[ "$WALLPAPER" =~ \.gif$ ]]; then
+  TMP_IMG="$(mktemp --suffix=.png)"
+  ffmpeg -y -i "$WALLPAPER" -vf "select=eq(n\,0)" -vframes 1 "$TMP_IMG" >/dev/null 2>&1
+  NOTIFY_IMG="$TMP_IMG"
+else
+  NOTIFY_IMG="$WALLPAPER"
+fi
 
-# symbolic link in ~/.current_wallpaper
-ln -sf "$WALLPAPER" "$HOME/.current_wallpaper" || notify-send "Failed to create symbolic link" --app-name=Wallpaper
+# Set wallpaper using swww
+swww img "$WALLPAPER" --transition-type center --transition-fps 60 && notify-send "Wallpaper Changed" -i "$NOTIFY_IMG" --app-name=Wallpaper
 
-exit 1
+# Clean up temp image if created
+if [[ -n "$TMP_IMG" && -f "$TMP_IMG" ]]; then
+  rm "$TMP_IMG"
+fi
+
+exit 0

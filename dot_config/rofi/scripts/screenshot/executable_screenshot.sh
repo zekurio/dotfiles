@@ -18,7 +18,7 @@ folder=""
 
 selected="$(echo -e "$region\n$output\n$folder" | rofi -dmenu -theme "${theme}")"
 
-sleep 0.1
+sleep 0.3
 
 case $selected in
 $region)
