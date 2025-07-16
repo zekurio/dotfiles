@@ -22,3 +22,4 @@ window-padding-balance = true
 auto-update = check
 auto-update-channel = stable
 copy-on-select = clipboard
+keybind = shift+enter=text:\n
