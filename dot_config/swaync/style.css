@@ -15,6 +15,8 @@
   transition: 200ms;
 }
 
+.blank-window { background: transparent; }
+
 .widget-mpris {
   background: linear-gradient(to right, #313244, rgba(183, 189, 248, 0.3));
 
