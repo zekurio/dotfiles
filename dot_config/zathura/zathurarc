@@ -15,7 +15,7 @@ set zoom-min 10
 set guioptions ""
 
 set render-loading "false"
-set font "0xProto Nerd Font"
+set font "JetBrainsMono Nerd Font"
 unmap f
 map f toggle_fullscreen
 unmap a
