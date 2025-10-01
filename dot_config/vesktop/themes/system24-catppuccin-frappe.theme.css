@@ -11,12 +11,12 @@
 */
 
 /* import theme modules */
-@import url('https://refact0r.github.io/system24/build/system24.css');
+@import url("https://refact0r.github.io/system24/build/system24.css");
 
 body {
     /* font, change to '' for default discord font */
-    --font: 'DM Mono'; /* change to '' for default discord font */
-    --code-font: 'DM Mono'; /* change to '' for default discord font */
+    --font: "DM Mono"; /* change to '' for default discord font */
+    --code-font: "DM Mono"; /* change to '' for default discord font */
     font-weight: 300; /* text font weight. 300 is light, 400 is normal. DOES NOT AFFECT BOLD TEXT */
     letter-spacing: -0.05ch; /* decreases letter spacing for better readability. recommended on monospace fonts.*/
 
@@ -32,7 +32,9 @@ body {
     --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
 
     /* top bar options */
-    --top-bar-height: var(--gap); /* height of the top bar (discord default is 36px, old discord style is 24px, var(--gap) recommended if button position is set to titlebar) */
+    --top-bar-height: var(
+        --gap
+    ); /* height of the top bar (discord default is 36px, old discord style is 24px, var(--gap) recommended if button position is set to titlebar) */
     --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar (will hide title) */
     --top-bar-title-position: off; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
     --subtle-top-bar-title: off; /* off: default, on: hide the icon and use subtle text color (like old discord) */
@@ -43,18 +45,25 @@ body {
 
     /* dms button options */
     --custom-dms-icon: hide; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
-    --dms-icon-svg-url: url(''); /* icon svg url. MUST BE A SVG. */
+    --dms-icon-svg-url: url(""); /* icon svg url. MUST BE A SVG. */
     --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
     --dms-icon-color-before: var(--icon-secondary); /* normal icon color */
-    --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
-    --custom-dms-background: color; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
-    --dms-background-image-url: url(''); /* url of the background image */
+    --dms-icon-color-after: var(
+        --white
+    ); /* icon color when button is hovered/selected */
+    --custom-dms-background: image;
+    --dms-background-image-url: url("https://raw.githubusercontent.com/catppuccin/catppuccin/refs/heads/main/assets/logos/exports/macchiato_square.png"); /* url of the background image */
     --dms-background-image-size: cover; /* size of the background image (css background-size property) */
-    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
+    --dms-background-color: linear-gradient(
+        70deg,
+        var(--blue-2),
+        var(--purple-2),
+        var(--red-2)
+    ); /* fixed color/gradient (css background property) */
 
     /* background image options */
     --background-image: off; /* off: no background image, on: enable background image (must set url variable below) */
-    --background-image-url: url(''); /* url of the background image */
+    --background-image-url: url(""); /* url of the background image */
 
     /* transparency/blur options */
     /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
@@ -62,7 +71,9 @@ body {
     --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
     --panel-blur: off; /* off: no changes, on: blur the background of panels */
     --blur-amount: 12px; /* amount of blur */
-    --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+    --bg-floating: var(
+        --bg-3
+    ); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
 
     /* other options */
     --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
@@ -99,8 +110,18 @@ body {
     --bg-3: #292c3c; /* spacing, secondary elements */
     --bg-4: #303446; /* main background color */
     --hover: hsla(228, 30%, 70%, 0.1); /* channels and buttons when hovered */
-    --active: hsla(228, 30%, 70%, 0.2); /* channels and buttons when clicked or selected */
-    --active-2: hsla(228, 30%, 70%, 0.3); /* extra state for transparent buttons */
+    --active: hsla(
+        228,
+        30%,
+        70%,
+        0.2
+    ); /* channels and buttons when clicked or selected */
+    --active-2: hsla(
+        228,
+        30%,
+        70%,
+        0.3
+    ); /* extra state for transparent buttons */
     --message-hover: hsla(228, 20%, 20%, 0.08); /* messages when hovered */
 
     /* accent colors */
@@ -109,11 +130,29 @@ body {
     --accent-3: var(--blue-3); /* accent buttons */
     --accent-4: var(--blue-4); /* accent buttons when hovered */
     --accent-5: var(--blue-5); /* accent buttons when clicked */
-    --accent-new: var(--accent-2); /* stuff that's normally red like mute/deafen buttons */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
-    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
-    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
+    --accent-new: var(
+        --accent-2
+    ); /* stuff that's normally red like mute/deafen buttons */
+    --mention: linear-gradient(
+        to right,
+        color-mix(in hsl, var(--accent-2), transparent 90%) 40%,
+        transparent
+    ); /* background of messages that mention you */
+    --mention-hover: linear-gradient(
+        to right,
+        color-mix(in hsl, var(--accent-2), transparent 95%) 40%,
+        transparent
+    ); /* background of messages that mention you when hovered */
+    --reply: linear-gradient(
+        to right,
+        color-mix(in hsl, var(--text-3), transparent 90%) 40%,
+        transparent
+    ); /* background of messages that reply to you */
+    --reply-hover: linear-gradient(
+        to right,
+        color-mix(in hsl, var(--text-3), transparent 95%) 40%,
+        transparent
+    ); /* background of messages that reply to you when hovered */
 
     /* status indicator colors */
     --online: var(--green-2); /* change to #43a25a for default */
@@ -126,7 +165,12 @@ body {
     --border-light: hsla(228, 30%, 70%, 0.15); /* general light border color */
     --border: hsla(228, 30%, 70%, 0.25); /* general normal border color */
     --border-hover: var(--accent-2); /* border color of panels when hovered */
-    --button-border: hsla(228, 10%, 95%, 0.12); /* neutral border color of buttons */
+    --button-border: hsla(
+        228,
+        10%,
+        95%,
+        0.12
+    ); /* neutral border color of buttons */
 
     /* base colors */
     --red-1: hsl(359deg, 68%, 86%);

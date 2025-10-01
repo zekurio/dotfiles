@@ -9,11 +9,7 @@
     "height": 38,
     "modules-left": ["custom/launcher", "hyprland/workspaces"],
     "modules-center": ["custom/music"],
-{{ if eq .chezmoi.hostname "choncc" }}
-    "modules-right": ["clock", "wireplumber", "network", "bluetooth", "custom/lock", "custom/power", "tray"],
-{{ else if eq .chezmoi.hostname "g14" }}
-    "modules-right": ["clock", "wireplumber", "network", "bluetooth", "battery", "backlight", "custom/lock", "custom/power", "tray"],
-{{ end }}
+    "modules-right": ["clock", "wireplumber", "network", "bluetooth", "custom/notifications", "custom/lock", "custom/power", "tray"],
     "battery": {
         "format": "<span color='#a6e3a1'></span> {capacity}%",
         "format-charging": "<span color='#f9e2af'></span> {capacity}%",
@@ -110,6 +106,26 @@
     	"on-click": "~/.config/hypr/scripts/hyprlock.sh",
     	"format": "󰌾"
     },
+        "custom/notifications": {
+        "tooltip": false,
+        "format": "{icon} {text}",
+        "format-icons": {
+            "notification": "<span color='#89b4fa'>󰂚</span><span foreground='red'><sup></sup></span>",
+            "none": "<span color='#89b4fa'>󰂚</span>",
+            "dnd-notification": "<span color='#89b4fa'>󰂛</span><span foreground='red'><sup></sup></span>",
+            "dnd-none": "<span color='#89b4fa'>󰂛</span>",
+            "inhibited-notification": "<span color='#89b4fa'>󰂚</span><span foreground='red'><sup></sup></span>",
+            "inhibited-none": "<span color='#89b4fa'>󰂚</span>",
+            "dnd-inhibited-notification": "<span color='#89b4fa'>󰂛</span><span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": "<span color='#89b4fa'>󰂛</span>"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+	},
     "custom/power": {
         "tooltip": false,
         "on-click": "~/.config/hypr/scripts/wlogout.sh",
